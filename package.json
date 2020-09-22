@@ -1,0 +1,22 @@
+{
+  "name": "blog-md-fs",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@gridsome/remark-prismjs": "^0.4.0",
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.6.3",
+    "gridsome": "^0.7.0",
+    "vuetify": "^2.3.10"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
