@@ -31,7 +31,7 @@
       </v-btn>
     </v-app-bar>
 
-    <transition name="fade">
+    <transition name="bounce">
       <v-btn
         class="md-5 mr-3 elevation-21"
         dark
@@ -178,13 +178,23 @@ export default {
   color: white;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s;
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
 }
 
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
