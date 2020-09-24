@@ -1,14 +1,18 @@
-# Default starter for Gridsome
+# ✨ Josh Arrants's website ✨
 
-This is the project you get when you run `gridsome create new-project`.
+![Alt Text](https://media.giphy.com/media/7CEEfMbnj0tYJjA6vQ/giphy.gif)
 
-### 1. Install Gridsome CLI tool if you don't have
+> Welcome to the repository for my website! This site is a rework of my previous website with a markdown based blog. I made this website with an intention of implementing the [JAMstack](https://jamstack.org/), which is a web development convention that focuses on better performance, higher security, easier scaling, and an overall better developer experience!
 
-`npm install --global @gridsome/cli`
+## Built With
 
-### 2. Create a Gridsome project
+- [Vue](https://vuejs.org/) - Front-end framework written in NodeJS/JavaScript
+- [Gridsome](https://gridsome.org/) - Static site generator for Vue.js
+- [Vuetify](https://vuetifyjs.com/en/) - UI Component framework for Vue.js based on Material Design
+- [Material Design Icons](https://materialdesignicons.com/) - Icons
+- [Fontawesome](https://fontawesome.com/) - Icons
+- [Unsplash](https://unsplash.com/) - Freely-usable general purpose images
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+## License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details
