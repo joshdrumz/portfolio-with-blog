@@ -1,53 +1,74 @@
 <template>
   <Layout>
-    <div>
-      <h1 v-html="$page.blog.title"></h1>
-      <div>
-        <!-- <p>{{ $page.blog.author.name }}</p> -->
+    <section id="title">
+      <div class="ma-8">
+        <h1
+          class="display-3 font-weight-bold mb-5 text-center green--text text--lighten-3"
+        >
+          {{ $page.blog.title }}
+        </h1>
+        <div class="d-flex justify-center">
+          <h4 class="font-weight-light text-xs-body-1">
+            {{ $page.blog.author.name }}
+          </h4>
+          <p class="px-2">|</p>
+          <h4 class="font-weight-light text-xs-body-1">
+            {{ $page.blog.humanTime }}
+          </h4>
+          <p class="px-2">|</p>
+          <h4 class="font-weight-light text-xs-body-1">category goes here</h4>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <v-row align="center" justify="center">
-      <v-img
-        :src="$page.blog.image"
-        :alt="$page.blog.image_caption"
-        aspect-ratio="1"
-        class="grey lighten-2"
-        max-width="500"
-        max-height="300"
-      >
-        <!-- <template v-slot:placeholder>
+    <section id="image" class="mb-16">
+      <v-img :src="$page.blog.image" :alt="$page.blog.image_caption">
+        <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            ></v-progress-circular>
           </v-row>
-        </template>-->
+        </template>
       </v-img>
-      <p>{{ $page.blog.image_caption }}</p>
-    </v-row>
+      <p class="subheading font-italic text-center mt-4 grey--text">
+        {{ $page.blog.image_caption }}
+      </p>
+    </section>
 
-    <div>
-      <p v-html="$page.blog.excerpt"></p>
+    <!-- <hr class="grey" /> -->
+
+    <div class="content">
       <div v-html="$page.blog.content"></div>
     </div>
   </Layout>
 </template>
-
-<script>
-export default {};
-</script>
 
 <page-query>
   query ($id: ID!) {
     blog (id: $id) {
       title
       path
-      image(width:500)
+      image
       image_caption
       excerpt
       content
+      datetime : created(format: "ddd MMM DD YYY hh:mm:ss zZ")
+      humanTime : created(format: "Do MMMM YYYY")
+      author {
+        name
+      }
     }
   }
 </page-query>
 
-<style>
-</style>
+<script>
+export default {
+  metaInfo() {
+    return {
+      title: this.$page.blog.title
+    };
+  }
+};
+</script>

@@ -1,33 +1,35 @@
 ---
-title: Something
-tags: tag1, tag2
-category: Health
-excerpt: Lorem markdownum aptos pes, Inachidos caput corrumpere!
-created: 2019-01-10
+title: How to build a blog with Vue.js, Gridsome and Vuetify
+# tags: tag1, tag2
+category: Coding
+excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
+created: 2020-01-10
 image: ./images/josh-spires-dronenr-sQalFlXIsLs-unsplash.jpg
 image_caption: Photo by Josh Spires on Unsplash
 author: author1
 ---
 
 ```js { lineNumbers: true }
-export default function (Vue, { appOptions, head }) {
+export default function(Vue, { appOptions, head }) {
   head.link.push({
-    rel: 'stylesheet',
-    href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
-  })
+    rel: "stylesheet",
+    href:
+      "https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css",
+  });
 
   head.link.push({
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
-  })
+    rel: "stylesheet",
+    href:
+      "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900",
+  });
 
-  const opts = {} //opts includes, vuetify themes, icons, etc.
-  Vue.use(Vuetify)
+  const opts = {}; //opts includes, vuetify themes, icons, etc.
+  Vue.use(Vuetify);
 
-  appOptions.vuetify = new Vuetify(opts)
+  appOptions.vuetify = new Vuetify(opts);
 
   // Set default layout as a global component
-  Vue.component('Layout', DefaultLayout)
+  Vue.component("Layout", DefaultLayout);
 }
 ```
 
@@ -57,9 +59,9 @@ idem fugit, non abiit palam quantum, fontes vinci et abiit. Deiectoque exstabant
 
 ## Et capienda Peneia
 
-*Haec moenia pater* signataque urget, ait quies laqueo sumitque. Misit sit
+_Haec moenia pater_ signataque urget, ait quies laqueo sumitque. Misit sit
 moribunda terrae sequar longis hoc, cingebant copia cultros! Alis templi taeda
-solet suum mihi penates quae. Cecidere *deo agger infantem* indetonsusque ipsum;
+solet suum mihi penates quae. Cecidere _deo agger infantem_ indetonsusque ipsum;
 ova formasque cornu et pectora [voce oculos](http://www.tibibene.io/iter.html),
 prodis pariterque sacra finibus, Sabinae. Fugarant fuerat, famam ait toto imas
 sorte pectora, est et, procubuit sua Appenninigenae habes postquam.

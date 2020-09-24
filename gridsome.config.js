@@ -10,24 +10,31 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
+        typeName: 'Author',
+        path: './content/author/*.md'
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
         typeName: 'Blog',
         path: './content/blog/**/*.md',
         remark: {
           plugins: [
             '@gridsome/remark-prismjs',
           ]
+        },
+        refs: {
+          author: 'Author',
+          // tags: {
+          //   typeName: 'Tag',
+          //   create: true
+          // },
+          // category: {
+          //   typeName: 'Category',
+          //   create: true
+          // }
         }
-        // refs: {
-        //   author: 'Author',
-        //   tags: {
-        //     typeName: 'Tag',
-        //     create: true
-        //   },
-        //   category: {
-        //     typeName: 'Category',
-        //     create: true
-        //   }
-        // }
       }
     }
   ],
