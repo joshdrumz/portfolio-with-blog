@@ -3,8 +3,9 @@
     <section id="title">
       <div class="ma-8">
         <h1
-          class="display-3 font-weight-bold mb-5 text-center green--text text--lighten-3"
+          class="display-3 font-weight-bold mb-5 text-center deep-purple--text text--darken-2"
         >
+          <!-- green--text text--lighten-3 -->
           {{ $page.blog.title }}
         </h1>
         <div class="d-flex justify-center">
@@ -16,7 +17,9 @@
             {{ $page.blog.humanTime }}
           </h4>
           <p class="px-2">|</p>
-          <h4 class="font-weight-light text-xs-body-1">category goes here</h4>
+          <h4 class="font-weight-light text-xs-body-1">
+            {{ $page.blog.category }}
+          </h4>
         </div>
       </div>
     </section>
@@ -37,7 +40,7 @@
       </p>
     </section>
 
-    <!-- <hr class="grey" /> -->
+    <hr />
 
     <div class="content">
       <div v-html="$page.blog.content"></div>
@@ -53,6 +56,7 @@
       image
       image_caption
       excerpt
+      category
       content
       datetime : created(format: "ddd MMM DD YYY hh:mm:ss zZ")
       humanTime : created(format: "Do MMMM YYYY")

@@ -27,7 +27,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+    title: '404'
+  }
+};
 </script>
 
 <style scoped>
