@@ -24,7 +24,7 @@
       </div>
     </section>
 
-    <section id="image" class="mb-16">
+    <section id="image" class="mb-12">
       <v-img :src="$page.blog.image" :alt="$page.blog.image_caption">
         <template v-slot:placeholder>
           <v-row class="fill-height ma-0" align="center" justify="center">
@@ -40,9 +40,9 @@
       </p>
     </section>
 
-    <hr />
+    <v-divider></v-divider>
 
-    <div class="content">
+    <div class="mt-8">
       <div v-html="$page.blog.content"></div>
     </div>
   </Layout>
