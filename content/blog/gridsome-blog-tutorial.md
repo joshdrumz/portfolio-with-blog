@@ -1,10 +1,10 @@
 ---
-title: How to build a blog with Vue.js, Gridsome and Vuetify
+title: How to build a personal developer blog with Vue.js, Gridsome and Vuetify
 # tags: tag1, tag2
 category: Coding
 excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
 created: 2020-01-10
-image: ./images/josh-spires-dronenr-sQalFlXIsLs-unsplash.jpg
+image: ./images/how-to-vue-gridsome-vuetify.png
 image_caption: Photo by Josh Spires on Unsplash
 author: author1
 ---
@@ -32,6 +32,13 @@ export default function(Vue, { appOptions, head }) {
   Vue.component("Layout", DefaultLayout);
 }
 ```
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>  *Everything* is going according to **plan**.
 
 ## Ossa narrat sortita fecerat sit conataque
 

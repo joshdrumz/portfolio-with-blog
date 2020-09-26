@@ -42,8 +42,8 @@
 
     <v-divider></v-divider>
 
-    <div class="mt-8">
-      <div v-html="$page.blog.content"></div>
+    <div class="mt-8 text-body-1">
+      <div class="extend-height" v-html="$page.blog.content"></div>
     </div>
   </Layout>
 </template>
@@ -76,3 +76,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.extend-height {
+  line-height: 30px;
+}
+</style>

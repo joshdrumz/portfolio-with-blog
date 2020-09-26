@@ -40,7 +40,7 @@
       <v-col cols="12">
         <v-hover v-slot:default="{ hover }">
           <v-card
-            class="my-4 v-card-zoom"
+            class="my-1 v-card-zoom"
             rounded="xl"
             dark
             :elevation="hover ? 16 : 4"
@@ -66,7 +66,7 @@
                 }}</v-list-item-title>
                 <v-list-item-subtitle
                   >by {{ edge.node.author.name }} on
-                  {{ formatDate(edge.node.created) }}</v-list-item-subtitle
+                  {{ edge.node.humanTime }}</v-list-item-subtitle
                 >
               </v-list-item-content>
             </v-list-item>
@@ -74,7 +74,7 @@
             <v-img
               :src="edge.node.image"
               :alt="edge.node.image_caption"
-              height="194"
+              height="300"
             ></v-img>
 
             <v-card-text>
@@ -118,6 +118,7 @@ query {
         image_caption
         excerpt
         created
+        humanTime : created(format: "MMMM Do YYYY")
         category
         author {
           name
@@ -129,8 +130,6 @@ query {
 </page-query>
 
 <script>
-import moment from 'moment';
-
 export default {
   metaInfo: {
     title: 'Blog'
@@ -163,9 +162,6 @@ export default {
         return edge.node.category === val;
       });
       console.log(this.blogs);
-    },
-    formatDate(date) {
-      return moment(date).format('MMMM Do YYYY');
     }
   }
 };
