@@ -34,65 +34,72 @@
       </v-card>
     </v-col> -->
 
-    <v-row>
+    <!-- :elevation="hover ? 16 : 4" -->
+
+    <v-row v-for="edge in $page.blogs.edges" :key="edge.node.id">
       <v-col cols="12">
-        <v-card
-          v-for="edge in $page.blogs.edges"
-          :key="edge.node.id"
-          class="my-12"
-        >
-          <v-list-item>
-            <v-list-item-avatar
-              v-if="edge.node.category === 'Coding'"
-              color="green"
-            >
-              <v-icon>mdi-xml</v-icon>
-            </v-list-item-avatar>
-            <v-list-item-avatar
-              v-else-if="edge.node.category === 'Personal'"
-              color="green"
-            >
-              <v-icon>mdi-face</v-icon>
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-title class="headline">{{
-                edge.node.title
-              }}</v-list-item-title>
-              <v-list-item-subtitle
-                >by {{ edge.node.author.name }} on
-                {{ formatDate(edge.node.created) }}</v-list-item-subtitle
+        <v-hover v-slot:default="{ hover }">
+          <v-card
+            class="my-4 v-card-zoom"
+            rounded="xl"
+            dark
+            :elevation="hover ? 16 : 4"
+            :ripple="{ class: 'green--text' }"
+            @click="$router.push(`${edge.node.path}`)"
+          >
+            <v-list-item>
+              <v-list-item-avatar
+                v-if="edge.node.category === 'Coding'"
+                color="green"
               >
-            </v-list-item-content>
-          </v-list-item>
+                <v-icon>mdi-xml</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-avatar
+                v-else-if="edge.node.category === 'Personal'"
+                color="green"
+              >
+                <v-icon>mdi-face</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title class="headline">{{
+                  edge.node.title
+                }}</v-list-item-title>
+                <v-list-item-subtitle
+                  >by {{ edge.node.author.name }} on
+                  {{ formatDate(edge.node.created) }}</v-list-item-subtitle
+                >
+              </v-list-item-content>
+            </v-list-item>
 
-          <v-img
-            :src="edge.node.image"
-            :alt="edge.node.image_caption"
-            height="194"
-          ></v-img>
+            <v-img
+              :src="edge.node.image"
+              :alt="edge.node.image_caption"
+              height="194"
+            ></v-img>
 
-          <v-card-text>
-            {{ edge.node.excerpt }}
-          </v-card-text>
+            <v-card-text>
+              {{ edge.node.excerpt }}
+            </v-card-text>
 
-          <v-card-actions>
-            <v-btn
-              text
-              color="deep-purple accent-4"
-              @click="$router.push(`${edge.node.path}`)"
-            >
-              Read Post
-            </v-btn>
-            <!-- <v-btn text color="deep-purple accent-4"> Bookmark </v-btn> -->
-            <v-spacer></v-spacer>
-            <v-btn icon>
-              <v-icon>mdi-heart</v-icon>
-            </v-btn>
-            <v-btn icon>
-              <v-icon>mdi-share-variant</v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
+            <!-- <v-card-actions>
+              <v-btn
+                text
+                color="deep-purple accent-4"
+                @click="$router.push(`${edge.node.path}`)"
+              >
+                Read Post
+              </v-btn>
+              <v-btn text color="deep-purple accent-4"> Bookmark </v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+              </v-btn>
+              <v-btn icon>
+                <v-icon>mdi-share-variant</v-icon>
+              </v-btn>
+            </v-card-actions> -->
+          </v-card>
+        </v-hover>
       </v-col>
     </v-row>
   </Layout>
@@ -100,7 +107,7 @@
 
 <page-query>
 query {
-  blogs: allBlog {
+  blogs: allBlog (sortBy: "created") {
     edges {
       node {
         id
@@ -113,7 +120,6 @@ query {
         created
         category
         author {
-          id
           name
         }
       }
@@ -165,5 +171,24 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.v-card-zoom {
+  transition: transform 0.4s, filter 0.4s ease-in-out;
+  filter: brightness(60%);
+}
+
+.v-card-zoom:hover {
+  filter: brightness(100%);
+  transform: scale(1.1);
+}
+
+/* Phones */
+@media only screen and (max-width: 600px) {
+  .v-card-zoom {
+    filter: brightness(100%);
+  }
+  .v-card-zoom:hover {
+    transform: scale(1.05);
+  }
+}
 </style>

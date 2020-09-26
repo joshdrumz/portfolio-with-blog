@@ -15,7 +15,6 @@
           v-for="link in links"
           :key="link.id"
           :to="link.to"
-          exact
           :ripple="{ class: 'green--text' }"
           >{{ link.name }}</v-tab
         >
