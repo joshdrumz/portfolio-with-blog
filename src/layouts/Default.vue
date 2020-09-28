@@ -14,6 +14,7 @@
         </v-row>
       </v-container>
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
@@ -28,11 +29,13 @@ query {
 <script>
 import AppBar from '~/components/AppBar';
 import ScrollToTop from '~/components/ScrollToTop';
+import Footer from '~/components/Footer';
 
 export default {
   components: {
     AppBar,
-    ScrollToTop
+    ScrollToTop,
+    Footer
   }
 };
 </script>
