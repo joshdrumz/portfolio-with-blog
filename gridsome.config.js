@@ -38,6 +38,12 @@ module.exports = {
       }
     }
   ],
+  transformers: {
+    remark: {
+      externalLinksTarget: "_blank",
+      externalLinksRel: ["nofollow", "noopener", "noreferrer"],
+    }
+  },
   templates: {
     Blog: [{
       path: '/blog/:title',

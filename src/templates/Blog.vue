@@ -1,14 +1,12 @@
 <template>
   <Layout>
     <section id="title">
-      <div class="ma-8">
-        <h1
-          class="display-3 font-weight-bold mb-5 text-center deep-purple--text text--darken-2"
-        >
+      <div class="my-8">
+        <h1 class="display-2 font-weight-bold text-center">
           <!-- green--text text--lighten-3 -->
           {{ $page.blog.title }}
         </h1>
-        <div class="d-flex justify-center">
+        <div class="d-flex justify-center mt-6">
           <h4 class="font-weight-light text-xs-body-1">
             {{ $page.blog.author.name }}
           </h4>
@@ -42,8 +40,11 @@
 
     <v-divider></v-divider>
 
-    <div class="mt-8 text-body-1">
-      <div class="extend-height" v-html="$page.blog.content"></div>
+    <div class="mt-8">
+      <div
+        class="extend-height text-md-body-1 px-4"
+        v-html="$page.blog.content"
+      ></div>
     </div>
   </Layout>
 </template>
@@ -78,7 +79,7 @@ export default {
 </script>
 
 <style scoped>
-.extend-height {
-  line-height: 30px;
+.extend-height h2 {
+  /* padding: 100px; */
 }
 </style>

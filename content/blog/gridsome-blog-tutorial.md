@@ -33,6 +33,8 @@ export default function(Vue, { appOptions, head }) {
 }
 ```
 
+<br />
+
 > #### The quarterly results look great!
 >
 > - Revenue was off the chart.
