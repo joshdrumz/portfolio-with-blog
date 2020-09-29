@@ -16,7 +16,9 @@
           </h4>
           <p class="px-2">|</p>
           <h4 class="font-weight-light text-xs-body-1">
-            {{ $page.blog.category }}
+            <g-link :to="$page.blog.category.path" class="text-decoration-none">
+              {{ $page.blog.category.title }}
+            </g-link>
           </h4>
         </div>
       </div>
@@ -57,7 +59,10 @@
       image
       image_caption
       excerpt
-      category
+      category {
+        title
+        path
+      }
       content
       datetime : created(format: "ddd MMM DD YYY hh:mm:ss zZ")
       humanTime : created(format: "Do MMMM YYYY")

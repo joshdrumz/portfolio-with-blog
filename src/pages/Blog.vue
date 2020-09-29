@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1 class="display-3 font-weight-bold mb-5 text-center">Blog</h1>
+    <h1 class="display-3 font-weight-bold my-5 text-center">Blog</h1>
 
     <!-- <v-tabs v-model="tab" grow>
       <v-tab>All Blogs</v-tab>
@@ -49,13 +49,13 @@
           >
             <v-list-item>
               <v-list-item-avatar
-                v-if="edge.node.category === 'Coding'"
+                v-if="edge.node.category.title === 'Coding'"
                 color="green"
               >
                 <v-icon>mdi-xml</v-icon>
               </v-list-item-avatar>
               <v-list-item-avatar
-                v-else-if="edge.node.category === 'Personal'"
+                v-else-if="edge.node.category.title === 'Personal'"
                 color="green"
               >
                 <v-icon>mdi-face</v-icon>
@@ -119,7 +119,10 @@ query {
         excerpt
         created
         humanTime : created(format: "MMMM Do YYYY")
-        category
+        category {
+          title
+          path
+        }
         author {
           name
         }

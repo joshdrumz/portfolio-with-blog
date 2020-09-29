@@ -30,10 +30,10 @@ module.exports = {
           //   typeName: 'Tag',
           //   create: true
           // },
-          // category: {
-          //   typeName: 'Category',
-          //   create: true
-          // }
+          category: {
+            typeName: 'Category',
+            create: true
+          }
         }
       }
     }
@@ -48,6 +48,10 @@ module.exports = {
     Blog: [{
       path: '/blog/:title',
       component: './src/templates/Blog.vue'
+    }],
+    Category: [{
+      path: '/category/:title',
+      component: './src/templates/Category.vue'
     }]
   }
 }
