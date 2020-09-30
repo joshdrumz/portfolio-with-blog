@@ -44,7 +44,7 @@ query ($id: ID!) {
             title
             path
             created
-            humanTime : created(format: "Do MMMM YYYY")
+            humanTime : created(format: "MMMM Do YYYY")
           }
         }
       }

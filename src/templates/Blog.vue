@@ -16,7 +16,11 @@
           </h4>
           <p class="px-2">|</p>
           <h4 class="font-weight-light text-xs-body-1">
-            <g-link :to="$page.blog.category.path" class="text-decoration-none">
+            Posted in
+            <g-link
+              :to="$page.blog.category.path"
+              class="text-decoration-none green--text text--darken-4"
+            >
               {{ $page.blog.category.title }}
             </g-link>
           </h4>
@@ -40,14 +44,12 @@
       </p>
     </section>
 
-    <v-divider></v-divider>
+    <!-- <v-divider></v-divider> -->
 
-    <div class="mt-8">
-      <div
-        class="extend-height text-md-body-1 px-4"
-        v-html="$page.blog.content"
-      ></div>
-    </div>
+    <div
+      class="text-md-h6 font-weight-regular px-2 markdown"
+      v-html="$page.blog.content"
+    ></div>
   </Layout>
 </template>
 
@@ -64,8 +66,7 @@
         path
       }
       content
-      datetime : created(format: "ddd MMM DD YYY hh:mm:ss zZ")
-      humanTime : created(format: "Do MMMM YYYY")
+      humanTime : created(format: "MMMM Do YYYY")
       author {
         name
       }
@@ -84,7 +85,20 @@ export default {
 </script>
 
 <style scoped>
-.extend-height h2 {
-  /* padding: 100px; */
+.markdown {
+  line-height: 35px;
+}
+
+.markdown >>> h2 {
+  /* https://medium.com/@brockreece/scoped-styles-with-v-html-c0f6d2dc5d8e */
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+.markdown >>> pre {
+  margin: 2.25rem 0 2.25rem 0;
+}
+
+.markdown >>> p {
+  margin: 2.25rem 0 2.25rem 0;
 }
 </style>

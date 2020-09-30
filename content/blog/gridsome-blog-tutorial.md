@@ -5,11 +5,11 @@ category: Coding
 excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
 created: 2020-01-10
 image: ./images/how-to-vue-gridsome-vuetify.png
-image_caption: Photo by Josh Spires on Unsplash
+image_caption: Photo by Josh Arrants
 author: author1
 ---
 
-```js { lineNumbers: true }
+```js
 export default function(Vue, { appOptions, head }) {
   head.link.push({
     rel: "stylesheet",
@@ -23,7 +23,7 @@ export default function(Vue, { appOptions, head }) {
       "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900",
   });
 
-  const opts = {}; //opts includes, vuetify themes, icons, etc.
+  const opts = {}; // opts includes, vuetify themes, icons, etc.
   Vue.use(Vuetify);
 
   appOptions.vuetify = new Vuetify(opts);
@@ -32,15 +32,6 @@ export default function(Vue, { appOptions, head }) {
   Vue.component("Layout", DefaultLayout);
 }
 ```
-
-<br />
-
-> #### The quarterly results look great!
->
-> - Revenue was off the chart.
-> - Profits were higher than ever.
->
->  *Everything* is going according to **plan**.
 
 ## Ossa narrat sortita fecerat sit conataque
 

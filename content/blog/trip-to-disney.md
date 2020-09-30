@@ -11,7 +11,7 @@ author: author1
 
 ## gridsome.server.js Example
 
-```js { lineNumbers: true }
+```js
 
 const nodeExternals = require('webpack-node-externals')
 
