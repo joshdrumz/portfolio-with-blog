@@ -75,7 +75,16 @@
               :src="edge.node.image"
               :alt="edge.node.image_caption"
               height="300"
-            ></v-img>
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="grey lighten-5"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img>
 
             <v-card-text>
               {{ edge.node.excerpt }}
@@ -143,28 +152,12 @@ export default {
       blogs: []
     };
   },
-  mounted() {
-    this.blogs = this.$page.blogs.edges;
-  },
-  watch: {
-    tab(val) {
-      if (this.tab === 0) {
-        this.showAllBlogs();
-      } else {
-        this.showBlogsByCategory(val);
-      }
-    }
-  },
-  methods: {
-    showAllBlogs() {
-      this.blogs = this.$page.blogs.edges;
-      console.log(this.blogs);
-    },
-    showBlogsByCategory(val) {
-      this.blogs = this.$page.blogs.edges.filter(edge => {
-        return edge.node.category === val;
-      });
-      console.log(this.blogs);
+  created() {
+    let path = this.$page.blogs.path;
+    if (path != null) {
+      path = path.slice(0, -1);
+      return path;
+      console.log(path);
     }
   }
 };
