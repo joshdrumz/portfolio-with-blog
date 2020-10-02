@@ -145,20 +145,6 @@ query {
 export default {
   metaInfo: {
     title: 'Blog'
-  },
-  data() {
-    return {
-      tab: 0,
-      blogs: []
-    };
-  },
-  created() {
-    let path = this.$page.blogs.path;
-    if (path != null) {
-      path = path.slice(0, -1);
-      return path;
-      console.log(path);
-    }
   }
 };
 </script>

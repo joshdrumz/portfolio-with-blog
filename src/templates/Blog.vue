@@ -81,14 +81,6 @@ export default {
       title: this.$page.blog.title
     };
   }
-  // mounted() {
-  //   if (this.$page.blogs.path != null) {
-  //     this.$page.blogs.path = this.$page.blogs.path.substring(
-  //       0,
-  //       str.length - 1
-  //     );
-  //   }
-  // }
 };
 </script>
 
