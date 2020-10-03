@@ -98,8 +98,15 @@ export default {
       easing: 'easeInOutCubic',
       projects: [
         {
-          src:
-            'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+          src: require('@/assets/img/projects/csgo-tracker-alt.png'),
+          title: 'CSGO Statistics',
+          excerpt:
+            'Using the Tracker CS:GO API, I built a single page application that takes in a valid Steam ID (64) username and displays CS:GO statistics such as K/D ratio, time played, and kills. This project uses Node.js, Express, Vue.js, and the Fetch API.',
+          demo: 'https://radiant-ridge-74167.herokuapp.com/',
+          code: 'https://github.com/joshdrumz/csgo-tracker'
+        },
+        {
+          src: require('@/assets/img/projects/expense-tracker.png'),
           title: 'Expense Tracker',
           excerpt:
             'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. It uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
@@ -107,22 +114,12 @@ export default {
           code: 'https://github.com/joshdrumz/expense-tracker'
         },
         {
-          src:
-            'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-          title: 'Expense Tracker',
+          src: require('@/assets/img/projects/foundnation-website.png'),
+          title: 'Foundnation',
           excerpt:
-            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. It uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
-          demo: 'https://agile-badlands-18303.herokuapp.com/',
-          code: 'https://github.com/joshdrumz/expense-tracker'
-        },
-        {
-          src:
-            'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-          title: 'Expense Tracker',
-          excerpt:
-            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. It uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
-          demo: 'https://agile-badlands-18303.herokuapp.com/',
-          code: 'https://github.com/joshdrumz/expense-tracker'
+            'Designed and implemented a website for Foundnation, a non-profit organization revitalized around the Pay It Forward scholarship movement. I used the Django framework, a Python based web framework, to build this site.',
+          demo: 'https://www.payitfwdscholarship.com/',
+          code: 'https://github.com/joshdrumz/foundnation-website'
         }
       ]
     };
