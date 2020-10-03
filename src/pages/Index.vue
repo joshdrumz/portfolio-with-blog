@@ -20,7 +20,7 @@
                   dark
                   large
                   outlined
-                  @click="$vuetify.goTo('#projects')"
+                  @click="$vuetify.goTo('#projects', options)"
                 >
                   <v-icon>mdi-chevron-double-down</v-icon>
                 </v-btn>
@@ -29,6 +29,9 @@
           </v-row>
         </v-parallax>
       </section>
+
+      <!-- <div></div> -->
+
       <section id="projects">
         <div class="py-10"></div>
 
@@ -39,12 +42,11 @@
             Projects
           </h2>
 
-          <v-responsive class="mx-auto mb-12" width="56">
+          <v-responsive class="mx-auto mb-12" width="86">
             <v-divider class="mb-1"></v-divider>
 
             <v-divider></v-divider>
           </v-responsive>
-          <!-- <div class="px-12"> -->
           <v-row>
             <v-col
               v-for="({ src, title, excerpt, demo, code }, i) in projects"
@@ -63,12 +65,17 @@
 
               <div class="title font-weight-light mb-5">{{ excerpt }}</div>
 
-              <v-btn class="font-weight-black"> Continue Reading </v-btn>
+              <v-btn :href="demo" target="_blank" class="mr-4">
+                <v-icon>mdi-wifi</v-icon>
+                <div class="ml-2">Demo</div>
+              </v-btn>
+              <v-btn :href="code" target="_blank" class="mr-4">
+                <v-icon>mdi-code-tags</v-icon>
+                <div class="ml-2">Code</div>
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>
-        <!-- </div> -->
-        <!-- <div class="py-12"></div> -->
       </section>
     </template>
   </Layout>
@@ -82,17 +89,20 @@ export default {
     Typewriter
   },
   metaInfo: {
-    title: ''
+    title: 'Home'
   },
   data() {
     return {
+      duration: 600,
+      offset: -50,
+      easing: 'easeInOutCubic',
       projects: [
         {
           src:
             'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           title: 'Expense Tracker',
           excerpt:
-            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. This project uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
+            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. It uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
           demo: 'https://agile-badlands-18303.herokuapp.com/',
           code: 'https://github.com/joshdrumz/expense-tracker'
         },
@@ -101,7 +111,7 @@ export default {
             'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           title: 'Expense Tracker',
           excerpt:
-            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. This project uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
+            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. It uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
           demo: 'https://agile-badlands-18303.herokuapp.com/',
           code: 'https://github.com/joshdrumz/expense-tracker'
         },
@@ -110,18 +120,21 @@ export default {
             'https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
           title: 'Expense Tracker',
           excerpt:
-            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. This project uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
+            'This project is a full-stack web application that tracks expenses and incomes of any user that enters in a transaction. It uses the MERN stack (MongoDB, Express, React, Node). React accepts data through an HTTP client package called Axios.',
           demo: 'https://agile-badlands-18303.herokuapp.com/',
           code: 'https://github.com/joshdrumz/expense-tracker'
         }
       ]
     };
+  },
+  computed: {
+    options() {
+      return {
+        duration: this.duration,
+        offset: this.offset,
+        easing: this.easing
+      };
+    }
   }
 };
 </script>
-
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
-</style>
