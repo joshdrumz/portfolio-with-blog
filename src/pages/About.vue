@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template slot="home">
-      <section id="about-me" class="teal lighten-4">
+      <section id="about-me" class="grey lighten-3">
         <div class="py-12"></div>
 
         <div class="text-center">
@@ -17,72 +17,92 @@
             class="mx-auto title font-weight-light mb-8"
             max-width="720"
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos
-            labore, debitis saepe ullam voluptas quo quam fuga vitae quia
-            commodi ratione earum incidunt excepturi in voluptatem quibusdam
-            reprehenderit. Eius eum est cumque, repellendus, explicabo dolorum
-            saepe voluptatibus inventore facere deleniti assumenda debitis
-            consectetur ullam, aspernatur vitae suscipit voluptates nobis at.
+            Hello! I want to thank you for visiting my website! I'm Josh
+            Arrants. I am a software engineer with a passion for development and
+            creation. I graduated in December of 2019 with a Bachelor's Degree
+            in Computer Science from Kennesaw State University. I landed my
+            first job as a remote software engineer shortly after graduation.
+            Take a look at my <g-link to="/blog">blog</g-link> for information
+            and tutorials on how I created this website as well as personal
+            posts about my life! I feel compelled to pass on the knowledge from
+            my experience of college and the real world to others. Feel free to
+            contact me on
+            <a
+              href="https://www.linkedin.com/in/josh-arrants/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              >LinkedIn</a
+            >
+            for any inquiries or business related questions!
           </v-responsive>
 
           <v-avatar class="elevation-12 mb-12" size="128">
-            <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+            <v-img
+              :src="require('@/assets/img/josh-avatar.jpg')"
+              alt="Josh Arrants avatar"
+            ></v-img>
           </v-avatar>
 
           <div></div>
 
-          <v-btn color="grey" href="https://vuetifyjs.com" outlined large>
-            <span class="grey--text text--darken-1 font-weight-bold">
-              Link somewhere
-            </span>
+          <v-btn
+            class="mt-8"
+            rounded
+            large
+            outlined
+            @click="$vuetify.goTo('#socials')"
+          >
+            <v-icon>mdi-chevron-double-down</v-icon>
           </v-btn>
         </div>
 
-        <div class="py-12"></div>
+        <div class="py-16"></div>
       </section>
 
-      <section id="features" class="grey lighten-3">
-        <div class="py-12"></div>
+      <section id="socials">
+        <div class="py-10"></div>
 
         <v-container class="text-center">
-          <h2 class="display-2 font-weight-bold mb-3">Connect with me!</h2>
+          <div class="text-center">
+            <h2 class="display-2 font-weight-bold mb-3">Connect with me!</h2>
 
-          <v-responsive class="mx-auto mb-12" width="56">
-            <v-divider class="mb-1"></v-divider>
+            <v-responsive class="mx-auto mb-12" width="56">
+              <v-divider class="mb-1"></v-divider>
 
-            <v-divider></v-divider>
-          </v-responsive>
+              <v-divider></v-divider>
+            </v-responsive>
 
-          <v-row>
-            <v-col
-              v-for="({ icon, text, title, to }, i) in socials"
-              :key="i"
-              cols="12"
-              md="4"
-            >
-              <v-card class="py-12 px-4" color="grey lighten-5" flat>
-                <v-theme-provider dark>
-                  <div>
-                    <v-avatar color="primary" size="88">
-                      <g-link :to="to">
-                        <v-icon large>{{ icon }}</v-icon>
-                      </g-link>
-                    </v-avatar>
-                  </div>
-                </v-theme-provider>
+            <v-row>
+              <v-col
+                v-for="({ icon, text, title, to }, i) in socials"
+                :key="i"
+                cols="12"
+                md="4"
+              >
+                <v-card class="py-12 px-4" color="grey lighten-5" flat>
+                  <v-theme-provider dark>
+                    <div>
+                      <v-avatar color="primary" size="88">
+                        <g-link :to="to">
+                          <v-icon large>{{ icon }}</v-icon>
+                        </g-link>
+                      </v-avatar>
+                    </div>
+                  </v-theme-provider>
 
-                <v-card-title
-                  class="justify-center font-weight-black text-uppercase"
-                  v-text="title"
-                ></v-card-title>
+                  <v-card-title
+                    class="justify-center font-weight-black text-uppercase"
+                    v-text="title"
+                  ></v-card-title>
 
-                <v-card-text class="subtitle-1" v-text="text"> </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
+                  <v-card-text class="subtitle-1" v-text="text"> </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </div>
         </v-container>
 
-        <div class="py-12"></div>
+        <!-- <div class="py-12"></div> -->
       </section>
     </template>
   </Layout>
