@@ -20,12 +20,12 @@
           >
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title class="headline">{{
-                  element.node.title
-                }}</v-list-item-title>
+                <v-list-item-title class="headline">
+                  {{ element.node.title }}
+                </v-list-item-title>
                 <v-list-item-subtitle>
-                  {{ element.node.humanTime }}</v-list-item-subtitle
-                >
+                  {{ element.node.humanTime }}
+                </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
 

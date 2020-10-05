@@ -6,8 +6,11 @@ import DefaultLayout from '~/layouts/Default.vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-import 'prismjs/themes/prism-vsc-dark-plus.css'
+// import 'prismjs/themes/prism-solarizedlight.css'
 // import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+
+require("gridsome-plugin-remark-prismjs-all/themes/tomorrow.css")
+require("prismjs/plugins/line-numbers/prism-line-numbers.css")
 
 import '@fortawesome/fontawesome-free/css/all.css'
 

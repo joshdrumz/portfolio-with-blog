@@ -14,7 +14,7 @@ author: author1
 - [Ossa narrat sortita fecerat sit conataque](#ossa-narrat-sortita-fecerat-sit-conataque)
 
 
-```js
+```js {3}{numberLines: true}
 export default function(Vue, { appOptions, head }) {
   head.link.push({
     rel: "stylesheet",

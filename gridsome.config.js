@@ -6,6 +6,9 @@
 
 module.exports = {
   siteName: 'Josh Arrants',
+  permalinks: {
+    trailingSlash: false
+  },
   plugins: [
     {
       use: '@gridsome/source-filesystem',
@@ -19,11 +22,6 @@ module.exports = {
       options: {
         typeName: 'Blog',
         path: './content/blog/**/*.md',
-        remark: {
-          plugins: [
-            '@gridsome/remark-prismjs',
-          ]
-        },
         refs: {
           author: 'Author',
           // tags: {
@@ -42,6 +40,9 @@ module.exports = {
     remark: {
       externalLinksTarget: "_blank",
       externalLinksRel: ["nofollow", "noopener", "noreferrer"],
+      plugins: [
+        'gridsome-plugin-remark-prismjs-all'
+      ]
     }
   },
   templates: {

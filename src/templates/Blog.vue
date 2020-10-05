@@ -94,11 +94,60 @@ export default {
   margin: 1.5rem 0 1.5rem 0;
 }
 
-.markdown >>> pre {
-  margin: 2.25rem 0 2.25rem 0;
+.markdown >>> .gridsome-highlight {
+  margin: 3rem 0 3rem 0;
 }
 
 .markdown >>> p {
   margin: 2.25rem 0 2.25rem 0;
+}
+
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+/* .markdown >>> .gridsome-highlight {
+  background-color: #fdf6e3;
+  border-radius: 5em;
+  margin: 4em 0;
+  padding: 1em;
+  overflow: auto;
+} */
+
+/* .markdown >>> .gridsome-code-title {
+  position: relative;
+  z-index: 100;
+  margin-bottom: -0.8em;
+  background-color: rgb(255, 238, 188);
+  color: red;
+  font-style: italic;
+  font-weight: 100;
+  text-align: center;
+  font-family: PT Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace;
+  line-height: 1.5;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+} */
+
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gridsome-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+.markdown >>> .gridsome-highlight pre[class*='language-'] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+/* Adjust the position of the line numbers */
+.markdown >>> .gridsome-highlight pre[class*='language-'].line-numbers {
+  padding-left: 2.8em;
 }
 </style>
