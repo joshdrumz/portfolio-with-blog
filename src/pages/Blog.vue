@@ -152,7 +152,7 @@ export default {
 <style scoped>
 .v-card-zoom {
   transition: transform 0.4s, filter 0.4s ease-in-out;
-  filter: brightness(60%);
+  filter: brightness(70%);
 }
 
 .v-card-zoom:hover {

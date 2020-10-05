@@ -14,7 +14,7 @@
           </v-responsive>
 
           <v-responsive
-            class="mx-auto title font-weight-light mb-8"
+            class="mx-auto text-md-h6 text-sm-subtitle-1 font-weight-light mb-8 px-4"
             max-width="720"
           >
             Hello! I want to thank you for visiting my website! I'm Josh
