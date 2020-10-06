@@ -2,7 +2,7 @@
   <v-app-bar app dark dense hide-on-scroll elevate-on-scroll>
     <v-btn icon>
       <g-link to="/">
-        <v-icon>fas fa-drum</v-icon>
+        <v-icon>mdi-code-tags</v-icon>
       </g-link>
     </v-btn>
 

@@ -25,22 +25,30 @@ export default {
   },
   methods: {
     scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
+      // https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97
+      // Nice! Only took me an hour to figure this build error out :D
+      if (typeof window !== 'undefined') {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
     },
     showButton() {
-      if (window.scrollY > 0) {
-        this.userScrolled = true;
-      } else if (window.scrollY <= 0) {
-        this.userScrolled = false;
+      if (typeof window !== 'undefined') {
+        if (window.scrollY > 0) {
+          this.userScrolled = true;
+        } else if (window.scrollY <= 0) {
+          this.userScrolled = false;
+        }
       }
     }
   },
   created() {
-    window.addEventListener('scroll', this.showButton);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.showButton);
+    }
   }
 };
 </script>
