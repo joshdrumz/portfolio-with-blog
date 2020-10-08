@@ -44,7 +44,11 @@
       </p>
     </section>
 
-    <!-- <v-divider></v-divider> -->
+    <v-responsive class="mx-auto mb-8" width="56">
+      <v-divider class="mb-1 grey lighten-1"></v-divider>
+
+      <v-divider class="grey lighten-1"></v-divider>
+    </v-responsive>
 
     <div
       class="text-md-h6 font-weight-regular px-2 markdown"
@@ -89,17 +93,31 @@ export default {
   line-height: 35px;
 }
 
+.markdown >>> ul {
+  margin-left: 1.5rem;
+  margin-bottom: 2.25rem;
+}
+
+/* .markdown >>> ul >>> li >>> ul {
+  margin-top: 0;
+} */
+
+.markdown >>> a {
+  color: black;
+}
+
 .markdown >>> h2 {
   /* https://medium.com/@brockreece/scoped-styles-with-v-html-c0f6d2dc5d8e */
   margin: 1.5rem 0 1.5rem 0;
 }
 
 .markdown >>> .gridsome-highlight {
+  font-size: 17px;
   margin: 3rem 0 3rem 0;
 }
 
 .markdown >>> p {
-  margin: 2.25rem 0 2.25rem 0;
+  margin: 2rem 0 2rem 0;
 }
 
 /**
@@ -142,11 +160,10 @@ export default {
   margin: 0;
   padding: 0;
   overflow: initial;
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
+  float: left;
+  min-width: 100%;
 }
 
-/* Adjust the position of the line numbers */
 .markdown >>> .gridsome-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.8em;
 }
