@@ -24,10 +24,6 @@ module.exports = {
         path: './content/blog/**/*.md',
         refs: {
           author: 'Author',
-          // tags: {
-          //   typeName: 'Tag',
-          //   create: true
-          // },
           category: {
             typeName: 'Category',
             create: true

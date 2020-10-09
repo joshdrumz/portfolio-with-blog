@@ -1,8 +1,8 @@
 ---
-title: How to build a personal developer blog with Vue.js, Gridsome and Vuetify
+title: How to build a personal developer blog with Vue.js, Gridsome and Vuetify (Part 1)
 category: Coding
 excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
-created: 2020-01-10
+created: 2020-10-10
 image: ./images/how-to-vue-gridsome-vuetify.png
 image_caption: Photo by Josh Arrants
 author: author1
@@ -13,7 +13,8 @@ This is the first programming related tutorial I have written.
 I'm excited to begin my journey teaching others, just as I learned from content creaters on YouTube and Udemy.
 The site you are viewing now was also created using Vue.js, Gridsome, and Vuetify.
 
-In this guide, I will show you how to create your very own blog using Gridsome!
+In this guide, I will show you how to create your very own blog using Gridsome!  
+In part 1 of this series, we'll go through the setup and installation process of Gridsome and Vuetify.
 
 - [Prerequisites](#prerequisites)
 - [What is Vue.js?](#what-is-vuejs)
@@ -22,6 +23,7 @@ In this guide, I will show you how to create your very own blog using Gridsome!
 - [Installing Gridsome](#installing-gridsome)
 - [Folder Structure](#folder-structure)
 - [Setting up Vuetify in Gridsome](#setting-up-vuetify-in-gridsome)
+- [Conclusion](#conclusion)
 
 ## Prerequisites
 
@@ -187,38 +189,40 @@ export default function (Vue, { appOptions, head }) {
 }
 ```
 
-> Nec uterum Aurorae petentes abstulit. Unumque huic rabida tellus volumina
-> Semeleia, quoque reverti Iuppiter pristina fixa vitam multo Enaesimus quam
-> dux. Sua **damus** decipere, ut **obortas** nomen sine vestrae vita.
+In order to build a Gridsome app with Vuetify for production, we'll need to allowlist Vuetify in Webpack. 
+First, install the `webpack-node-externals` package as a dev dependency:
 
-Turbine ora sum securae, purpureae lacertis Pindumve superi: tellus liquerat
-**carinis**. Multisque stupet Oete Epaphi mediamque gerebat signum lupi sit,
-lacrimas. Tumidi fassusque hosti, deus [vixque desint
-dedit](http://hisnurus.com/putares-pars) dum et, quo non, dea [suras
-tantum](http://mactata.org/inducere.php). Unus acta capulo. In Dryope sic
-vestigia est neu ignis in **illa mirantur agilis** densior.
+```bash
+npm install webpack-node-externals --save-dev
+```
 
+Now let's modify our `gridsome.config.js` file to include the package and allowlist Vuetify.
 
-```js {3}{numberLines: true}
-export default function(Vue, { appOptions, head }) {
-  head.link.push({
-    rel: "stylesheet",
-    href:
-      "https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css",
+```js
+// gridsome.config.js
+const nodeExternals = require('webpack-node-externals');
+
+module.exports = function (api) {
+  api.chainWebpack((config, { isServer }) => {
+    if (isServer) {
+      config.externals([
+        nodeExternals({
+          allowlist: [/^vuetify/]
+        });
+      ]);
+    }
   });
 
-  head.link.push({
-    rel: "stylesheet",
-    href:
-      "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900",
+  api.loadSource(store => {
+    // Use the Data store API here: https://gridsome.org/docs/data-store-api
   });
-
-  const opts = {}; // opts includes, vuetify themes, icons, etc.
-  Vue.use(Vuetify);
-
-  appOptions.vuetify = new Vuetify(opts);
-
-  // Set default layout as a global component
-  Vue.component("Layout", DefaultLayout);
 }
 ```
+
+> **Note**: Before webpack-node-externals version 2.4, use whitelist instead of allowlist.
+
+You should notice that now our webpage looks a little different now that Vuetify is working.
+
+## Conclusion
+
+In [part 2](/blog/how-to-build-a-personal-developer-blog-with-vue-js-gridsome-and-vuetify-part-2), we'll start building out a layout and pages for our developer blog!

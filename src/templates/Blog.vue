@@ -54,6 +54,8 @@
       class="text-md-h6 font-weight-regular px-2 markdown"
       v-html="$page.blog.content"
     ></div>
+
+    <Disqus shortname="josharrants" :identifier="$page.blog.title" />
   </Layout>
 </template>
 
@@ -93,14 +95,24 @@ export default {
   line-height: 35px;
 }
 
-.markdown >>> ul {
-  margin-left: 1.5rem;
-  margin-bottom: 2.25rem;
+.markdown >>> ul:last-child {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-/* .markdown >>> ul >>> li >>> ul {
-  margin-top: 0;
-} */
+.markdown >>> ul {
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.markdown >>> blockquote {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+}
 
 .markdown >>> a {
   color: black;

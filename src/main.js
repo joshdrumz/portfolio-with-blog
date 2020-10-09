@@ -6,6 +6,8 @@ import DefaultLayout from '~/layouts/Default.vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
+import VueDisqus from 'vue-disqus'
+
 require("gridsome-plugin-remark-prismjs-all/themes/tomorrow.css")
 require("prismjs/plugins/line-numbers/prism-line-numbers.css")
 
@@ -20,12 +22,10 @@ export default function (Vue, { appOptions, head }) {
     href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
   })
 
-  const opts = { //opts includes, vuetify themes, icons, etc.
-    icons: {
-      iconfont: 'fa'
-    }
-  }
+  const opts = {} //opts includes, vuetify themes, icons, etc.
   Vue.use(Vuetify)
+
+  Vue.use(VueDisqus)
 
   appOptions.vuetify = new Vuetify(opts)
 
