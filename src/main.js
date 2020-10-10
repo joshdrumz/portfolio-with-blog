@@ -22,6 +22,12 @@ export default function (Vue, { appOptions, head }) {
     href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
   })
 
+  head.script.push({
+    src: 'https://platform.twitter.com/widgets.js',
+    body: true,
+    async: true,
+  })
+
   const opts = {} //opts includes, vuetify themes, icons, etc.
   Vue.use(Vuetify)
 

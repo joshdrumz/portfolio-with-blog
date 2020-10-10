@@ -42,7 +42,6 @@
           <v-card
             class="my-1 v-card-zoom"
             rounded="xl"
-            dark
             :elevation="hover ? 16 : 4"
             :ripple="{ class: 'green--text' }"
             @click="$router.push(`${edge.node.path}`)"
@@ -65,13 +64,13 @@
                   edge.node.title
                 }}</v-list-item-title>
                 <v-list-item-subtitle
-                  >by {{ edge.node.author.name }} on
-                  {{ edge.node.humanTime }}</v-list-item-subtitle
+                  >{{ edge.node.author.name }} |
+                  {{ formatDate(edge.node.created) }}</v-list-item-subtitle
                 >
               </v-list-item-content>
             </v-list-item>
 
-            <v-img
+            <!-- <v-img
               :src="edge.node.image"
               :alt="edge.node.image_caption"
               height="300"
@@ -84,7 +83,7 @@
                   ></v-progress-circular>
                 </v-row>
               </template>
-            </v-img>
+            </v-img> -->
 
             <v-card-text>
               {{ edge.node.excerpt }}
@@ -142,9 +141,16 @@ query {
 </page-query>
 
 <script>
+import * as timeago from 'timeago.js';
+
 export default {
   metaInfo: {
     title: 'Blog'
+  },
+  methods: {
+    formatDate(date) {
+      return timeago.format(date);
+    }
   }
 };
 </script>

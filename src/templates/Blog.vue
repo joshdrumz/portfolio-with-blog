@@ -3,7 +3,6 @@
     <section id="title">
       <div class="my-8">
         <h1 class="display-2 font-weight-bold text-center">
-          <!-- green--text text--lighten-3 -->
           {{ $page.blog.title }}
         </h1>
         <div class="d-flex justify-center mt-6">
@@ -56,6 +55,15 @@
     ></div>
 
     <Disqus shortname="josharrants" :identifier="$page.blog.title" />
+
+    <!-- <a
+      href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+      class="twitter-share-button"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      data-show-count="false"
+      >Tweet</a
+    > -->
   </Layout>
 </template>
 
