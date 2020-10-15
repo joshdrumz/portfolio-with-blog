@@ -79,30 +79,37 @@
                 cols="12"
                 md="4"
               >
-                <v-card class="py-12 px-4" color="grey lighten-5" flat>
+                <v-card class="py-12 px-4" color="grey lighten-4" flat>
                   <v-theme-provider dark>
                     <div>
-                      <v-avatar color="primary" size="88">
-                        <g-link :to="to">
+                      <g-link :to="to">
+                        <v-avatar
+                          class="v-avatar-zoom"
+                          color="primary"
+                          size="88"
+                        >
                           <v-icon large>{{ icon }}</v-icon>
-                        </g-link>
-                      </v-avatar>
+                        </v-avatar>
+                      </g-link>
                     </div>
                   </v-theme-provider>
 
                   <v-card-title
                     class="justify-center font-weight-black text-uppercase"
-                    v-text="title"
-                  ></v-card-title>
+                  >
+                    {{ title }}
+                  </v-card-title>
 
-                  <v-card-text class="subtitle-1" v-text="text"> </v-card-text>
+                  <v-card-text class="subtitle-1">
+                    {{ text }}
+                  </v-card-text>
                 </v-card>
               </v-col>
             </v-row>
           </div>
         </v-container>
 
-        <!-- <div class="py-12"></div> -->
+        <div class="py-6"></div>
       </section>
     </template>
   </Layout>
@@ -142,3 +149,25 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.v-avatar-zoom {
+  transition: transform 0.4s, filter 0.4s ease-in-out;
+  filter: brightness(70%);
+}
+
+.v-avatar-zoom:hover {
+  filter: brightness(100%);
+  transform: scale(1.2);
+}
+
+/* Phones */
+/* @media only screen and (max-width: 600px) {
+  .v-avatar-zoom {
+    filter: brightness(100%);
+  }
+  .v-avatar-zoom:hover {
+    transform: scale(1.05);
+  }
+} */
+</style>
