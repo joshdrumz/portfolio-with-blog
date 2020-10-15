@@ -160,14 +160,4 @@ export default {
   filter: brightness(100%);
   transform: scale(1.2);
 }
-
-/* Phones */
-/* @media only screen and (max-width: 600px) {
-  .v-avatar-zoom {
-    filter: brightness(100%);
-  }
-  .v-avatar-zoom:hover {
-    transform: scale(1.05);
-  }
-} */
 </style>

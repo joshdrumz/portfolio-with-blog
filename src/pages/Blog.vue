@@ -2,46 +2,19 @@
   <Layout>
     <h1 class="display-3 font-weight-bold my-5 text-center">Blog</h1>
 
-    <!-- <v-tabs v-model="tab" grow>
-      <v-tab>All Blogs</v-tab>
-      <v-tab>Personal</v-tab>
-      <v-tab>Coding</v-tab>
-    </v-tabs> -->
+    <v-responsive class="mx-auto mb-8" width="56">
+      <v-divider class="mb-1"></v-divider>
 
-    <!-- <v-col class="justify-space-around">
-      <v-card
-        v-for="edge in $page.blogs.edges"
-        :key="edge.node.id"
-        class="mt-5"
-      >
-        <v-img
-          class="align-end"
-          height="200px"
-          :src="edge.node.image"
-          :alt="edge.node.image_caption"
-        >
-        </v-img>
+      <v-divider></v-divider>
+    </v-responsive>
 
-        <v-card-title>{{ edge.node.title }}</v-card-title>
-
-        <v-card-subtitle>{{ formatDate(edge.node.created) }}</v-card-subtitle>
-
-        <v-card-actions>
-          <v-btn @click="$router.push(`${edge.node.path}`)" color="green" text>
-            Go to Post
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col> -->
-
-    <!-- :elevation="hover ? 16 : 4" -->
-
-    <v-row v-for="edge in $page.blogs.edges" :key="edge.node.id">
-      <v-col cols="12">
+    <!-- <v-row v-for="edge in $page.blogs.edges" :key="edge.node.id">
+      
         <v-hover v-slot:default="{ hover }">
           <v-card
             class="my-1 v-card-zoom"
             rounded="xl"
+            dark
             :elevation="hover ? 16 : 4"
             :ripple="{ class: 'green--text' }"
             @click="$router.push(`${edge.node.path}`)"
@@ -70,7 +43,33 @@
               </v-list-item-content>
             </v-list-item>
 
-            <!-- <v-img
+            <v-img
+              :src="edge.node.image"
+              :alt="edge.node.image_caption"
+              height="300"
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="grey lighten-5"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img>
+
+            <v-card-text>
+              {{ edge.node.excerpt }}
+            </v-card-text>
+          </v-card>
+        </v-hover>
+      </v-col>
+    </v-row> -->
+
+    <v-row v-for="edge in $page.blogs.edges" :key="edge.node.id">
+      <v-col>
+        <v-card rounded="xl" elevation="0">
+          <!-- <v-img
               :src="edge.node.image"
               :alt="edge.node.image_caption"
               height="300"
@@ -84,30 +83,34 @@
                 </v-row>
               </template>
             </v-img> -->
-
-            <v-card-text>
-              {{ edge.node.excerpt }}
-            </v-card-text>
-
-            <!-- <v-card-actions>
-              <v-btn
-                text
-                color="deep-purple accent-4"
-                @click="$router.push(`${edge.node.path}`)"
+          <v-hover v-slot:default="{ hover }">
+            <v-card-title>
+              <g-link
+                :to="edge.node.path"
+                class="black--text"
+                :class="hover ? 'text-decoration' : 'text-decoration-none'"
               >
-                Read Post
-              </v-btn>
-              <v-btn text color="deep-purple accent-4"> Bookmark </v-btn>
-              <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-              </v-btn>
-              <v-btn icon>
-                <v-icon>mdi-share-variant</v-icon>
-              </v-btn>
-            </v-card-actions> -->
-          </v-card>
-        </v-hover>
+                {{ edge.node.title }}
+              </g-link>
+            </v-card-title>
+          </v-hover>
+
+          <v-card-subtitle>
+            {{ formatDate(edge.node.created) }} |
+            <g-link
+              :to="edge.node.category.path"
+              class="text-decoration-none green--text text--darken-4"
+            >
+              {{ edge.node.category.title }}
+            </g-link>
+          </v-card-subtitle>
+
+          <v-card-text>
+            {{ edge.node.excerpt }}
+          </v-card-text>
+
+          <v-divider class="ml-4"></v-divider>
+        </v-card>
       </v-col>
     </v-row>
   </Layout>
