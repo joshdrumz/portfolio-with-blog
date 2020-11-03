@@ -11,16 +11,22 @@
     <div v-for="edge in $page.blogs.edges" :key="edge.node.id">
       <v-row>
         <v-col md="4">
-          <v-img :src="edge.node.image" :alt="edge.node.image_caption">
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
+          <g-link :to="edge.node.path">
+            <v-img
+              :src="edge.node.image"
+              :alt="edge.node.image_caption"
+              class="v-img-zoom"
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="grey lighten-5"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img>
+          </g-link>
         </v-col>
         <v-col md="8">
           <v-card elevation="0">
@@ -49,61 +55,10 @@
             <v-card-text>
               {{ edge.node.excerpt }}
             </v-card-text>
-
-            <!-- <v-divider class="ml-4"></v-divider> -->
           </v-card>
         </v-col>
       </v-row>
     </div>
-
-    <!-- <v-row v-for="edge in $page.blogs.edges" :key="edge.node.id">
-      <v-col>
-        <v-img
-          :src="edge.node.image"
-          :alt="edge.node.image_caption"
-          class="d-flex"
-          height="300"
-        >
-          <template v-slot:placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-              ></v-progress-circular>
-            </v-row>
-          </template>
-        </v-img>
-        <v-card rounded="xl" elevation="0">
-          <v-hover v-slot:default="{ hover }">
-            <v-card-title>
-              <g-link
-                :to="edge.node.path"
-                class="black--text"
-                :class="hover ? 'text-decoration' : 'text-decoration-none'"
-              >
-                {{ edge.node.title }}
-              </g-link>
-            </v-card-title>
-          </v-hover>
-
-          <v-card-subtitle>
-            {{ formatDate(edge.node.created) }} |
-            <g-link
-              :to="edge.node.category.path"
-              class="text-decoration-none green--text text--darken-4"
-            >
-              {{ edge.node.category.title }}
-            </g-link>
-          </v-card-subtitle>
-
-          <v-card-text>
-            {{ edge.node.excerpt }}
-          </v-card-text>
-
-          <v-divider class="ml-4"></v-divider>
-        </v-card>
-      </v-col>
-    </v-row> -->
   </Layout>
 </template>
 
@@ -150,22 +105,28 @@ export default {
 </script>
 
 <style scoped>
-.v-card-zoom {
+.v-img-zoom {
   transition: transform 0.4s, filter 0.4s ease-in-out;
-  filter: brightness(70%);
+  filter: brightness(80%);
 }
 
-.v-card-zoom:hover {
+.v-img-zoom:hover {
   filter: brightness(100%);
   transform: scale(1.1);
 }
 
+/* https://github.com/vuetifyjs/vuetify/issues/9130 */
+.v-card__text,
+.v-card__title {
+  word-break: normal; /* maybe !important  */
+}
+
 /* Phones */
 @media only screen and (max-width: 600px) {
-  .v-card-zoom {
+  .v-img-zoom {
     filter: brightness(100%);
   }
-  .v-card-zoom:hover {
+  .v-img-zoom:hover {
     transform: scale(1.05);
   }
 }
