@@ -11,11 +11,7 @@
     <div v-for="edge in $page.blogs.edges" :key="edge.node.id">
       <v-row>
         <v-col md="4">
-          <v-img
-            :src="edge.node.image"
-            :alt="edge.node.image_caption"
-            max-width="300"
-          >
+          <v-img :src="edge.node.image" :alt="edge.node.image_caption">
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
                 <v-progress-circular
@@ -27,7 +23,7 @@
           </v-img>
         </v-col>
         <v-col md="8">
-          <v-card rounded="xl" elevation="0">
+          <v-card elevation="0">
             <v-hover v-slot:default="{ hover }">
               <v-card-title>
                 <g-link
