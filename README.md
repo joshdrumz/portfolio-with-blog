@@ -9,8 +9,8 @@
 - [Vue](https://vuejs.org/) - Front-end framework written in NodeJS/JavaScript
 - [Gridsome](https://gridsome.org/) - Static site generator for Vue.js
 - [Vuetify](https://vuetifyjs.com/en/) - UI Component framework for Vue.js based on Material Design
+- [Timeago.js](https://timeago.org/) - Format Dates
 - [Material Design Icons](https://materialdesignicons.com/) - Icons
-- [Fontawesome](https://fontawesome.com/) - Icons
 - [Unsplash](https://unsplash.com/) - Freely-usable general purpose images
 
 ## License
