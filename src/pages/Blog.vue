@@ -9,7 +9,7 @@
     </v-responsive>
 
     <div v-for="edge in $page.blogs.edges" :key="edge.node.id">
-      <v-row>
+      <v-row class="my-8">
         <v-col md="4">
           <g-link :to="edge.node.path">
             <v-img
@@ -59,12 +59,17 @@
         </v-col>
       </v-row>
     </div>
+    <Pager :info="$page.blogs.pageInfo" />
   </Layout>
 </template>
 
 <page-query>
-query {
-  blogs: allBlog (sortBy: "created") {
+query ($page: Int) {
+  blogs: allBlog (sortBy: "created", perPage: 5, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
@@ -75,7 +80,6 @@ query {
         image_caption
         excerpt
         created
-        humanTime : created(format: "MMMM Do YYYY")
         category {
           title
           path
@@ -90,11 +94,15 @@ query {
 </page-query>
 
 <script>
+import { Pager } from 'gridsome';
 import * as timeago from 'timeago.js';
 
 export default {
   metaInfo: {
     title: 'Blog'
+  },
+  components: {
+    Pager
   },
   methods: {
     formatDate(date) {

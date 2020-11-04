@@ -22,7 +22,8 @@
                   outlined
                   @click="$vuetify.goTo('#projects', options)"
                 >
-                  <v-icon>mdi-chevron-double-down</v-icon>
+                  <!-- <v-icon>mdi-chevron-double-down</v-icon> -->
+                  Projects
                 </v-btn>
               </div>
             </v-col>

@@ -9,6 +9,7 @@ author: author1
 ---
 
 - [Prerequisites](#prerequisites)
+- [Building a Layout](#building-a-layout)
 
 ## Prerequisites
 
@@ -35,3 +36,54 @@ Also, for GraphQL syntax highlighting to work with Gridsome, add this snippet to
   "static-query": "graphql"
 },
 ```
+
+## Building a Layout
+
+Let's recall what the purpose of a [layout](https://gridsome.org/docs/layouts/#layouts) is in Gridsome:
+
+> **/layouts**: Files that are created here that are intended to wrap pages and templates. This is where you would reference a navigation bar, footer, etc.
+
+This is the place where we will create a navigation bar, footer, and other components that are meant to be visible on all pages of our Gridsome site.
+
+Assuming you have followed the [previous tutorial](/blog/how-to-build-a-personal-developer-blog-with-vue-js-gridsome-and-vuetify-part-1), you should see a file called `Default.vue`. We will work in this file for our layout that will be used in all of our pages.
+
+Remove everything inside of the `<template>` and `<style>` tag for now and replace it with the below code. 
+
+```html
+// Default.vue
+<template>
+  <v-app>
+    <AppBar />
+
+    <ScrollToTop />
+
+    <v-main>
+      <slot name="home" />
+      <v-container fluid>
+        <v-row>
+          <v-col sm="6" offset-sm="3">
+            <slot />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+    <Footer />
+  </v-app>
+</template>
+
+<script>
+import AppBar from '~/components/AppBar';
+import ScrollToTop from '~/components/ScrollToTop';
+import Footer from '~/components/Footer';
+
+export default {
+  components: {
+    AppBar,
+    ScrollToTop,
+    Footer
+  }
+};
+</script>
+```
+
+Using Vuetify, it's always a good idea to have an entry point to our "app". It's actually a required component in Vuetify. We can accomplish this with the `<v-app>` component. Feel free to read more about this component [here](https://vuetifyjs.com/en/components/application/#application). The components `<AppBar />`, `<ScrollToTop />` and `<Footer />` are customly written components that we will write soon. It's always a good idea to write reusable Vue files into [components](https://gridsome.org/docs/components/#import-to-other-pages-or-components) to help organize your project.
