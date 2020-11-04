@@ -59,7 +59,7 @@
         </v-col>
       </v-row>
     </div>
-    <Pager :info="$page.blogs.pageInfo" />
+    <Pager :info="$page.blogs.pageInfo" class="pagination" />
   </Layout>
 </template>
 
@@ -137,5 +137,31 @@ export default {
   .v-img-zoom:hover {
     transform: scale(1.05);
   }
+}
+
+/* Pagination styling */
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  font-size: 22px;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination a.active {
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
 }
 </style>
