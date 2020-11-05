@@ -140,6 +140,11 @@ export default {
   margin: 2rem 0 2rem 0;
 }
 
+.markdown >>> .language-text {
+  background-color: #ddd;
+  color: black;
+}
+
 /**
  * Add back the container background-color, border-radius, padding, margin
  * and overflow that we removed from <pre>.

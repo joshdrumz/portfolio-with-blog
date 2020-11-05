@@ -59,7 +59,10 @@
         </v-col>
       </v-row>
     </div>
-    <Pager :info="$page.blogs.pageInfo" class="pagination" />
+
+    <div class="text-center">
+      <Pager :info="$page.blogs.pageInfo" class="pagination" />
+    </div>
   </Layout>
 </template>
 

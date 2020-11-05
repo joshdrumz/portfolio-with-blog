@@ -1,7 +1,7 @@
 <template>
   <div class="d-inline">
     <span class="typed-text">{{ typeValue }}</span>
-    <span class="cursor" :class="{'typing': typeStatus}">&nbsp;</span>
+    <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
   </div>
 </template>
 
@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 span.typed-text {
   color: #65e620;
 }
