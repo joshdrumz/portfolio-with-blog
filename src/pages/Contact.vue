@@ -1,9 +1,11 @@
 <template>
   <Layout>
     <div>
-      <form
+      <v-form
         name="contact"
         method="POST"
+        ref="form"
+        v-model="valid"
         @submit.prevent="handleSubmit"
         action="/success/"
         data-netlify="true"
@@ -15,22 +17,42 @@
         </p>
         <div class="sender-info">
           <div>
-            <label for="name" class="label">Your name</label>
-            <input type="text" name="name" v-model="formData.name" />
+            <label for="name" class="label" hidden>Your name</label>
+            <v-text-field
+              label="Name"
+              name="name"
+              :counter="50"
+              :rules="nameRules"
+              v-model="formData.name"
+              required
+            />
           </div>
           <div>
-            <label for="email">Your email</label>
-            <input type="email" name="email" v-model="formData.email" />
+            <label for="email" hidden>Your email</label>
+            <v-text-field
+              label="E-mail"
+              name="email"
+              :rules="emailRules"
+              v-model="formData.email"
+              required
+            />
           </div>
         </div>
 
         <div class="message-wrapper">
-          <label for="message">Message</label>
-          <textarea name="message" v-model="formData.message"></textarea>
+          <label for="message" hidden>Message</label>
+          <v-textarea
+            outlined
+            name="message"
+            label="Message"
+            :rules="[v => !!v || 'Message is required']"
+            v-model="formData.message"
+            required
+          ></v-textarea>
         </div>
 
-        <button type="submit">Submit form</button>
-      </form>
+        <v-btn type="submit" :disabled="!valid"> Submit form </v-btn>
+      </v-form>
     </div>
   </Layout>
 </template>
@@ -39,7 +61,16 @@
 export default {
   data() {
     return {
-      formData: {}
+      formData: {},
+      valid: true,
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 50) || 'Name must be less than 50 characters'
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+      ]
     };
   },
   methods: {
