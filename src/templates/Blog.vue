@@ -74,6 +74,7 @@
       path
       image
       image_caption
+      keywords
       excerpt
       category {
         title
@@ -92,7 +93,12 @@
 export default {
   metaInfo() {
     return {
-      title: this.$page.blog.title
+      title: this.$page.blog.title,
+      meta: [
+        { name: 'author', content: this.$page.blog.author.name },
+        { name: 'description', content: this.$page.blog.excerpt },
+        { name: 'keywords', content: this.$page.blog.keywords }
+      ]
     };
   }
 };

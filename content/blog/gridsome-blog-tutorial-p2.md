@@ -3,6 +3,7 @@ title: How to build a personal developer blog with Vue.js, Gridsome and Vuetify 
 category: Coding
 excerpt: In part 2 of the Gridsome blog series, we'll start building a layout and pages!
 created: 2020-10-11
+keywords: 'HTML,CSS,JavaScript,JSON,Vue,Gridsome,Vuetify,GraphQL'
 image: ./images/how-to-vue-gridsome-vuetify.png
 image_caption: Photo by Josh Arrants
 author: author1
@@ -86,4 +87,4 @@ export default {
 </script>
 ```
 
-Using Vuetify, it's always a good idea to have an entry point to our "app". It's actually a required component in Vuetify. We can accomplish this with the `<v-app>` component. Feel free to read more about this component [here](https://vuetifyjs.com/en/components/application/#application). The components `<AppBar />`, `<ScrollToTop />` and `<Footer />` are customly written components that we will write soon. It's always a good idea to write reusable Vue files into [components](https://gridsome.org/docs/components/#import-to-other-pages-or-components) to help organize your project.
+While utilizing Vuetify, it's always a good idea to have an entry point to our "app". It's actually a required component in Vuetify. We can accomplish this with the `<v-app>` component. Feel free to read more about this component [here](https://vuetifyjs.com/en/components/application/#application). The components `<AppBar />`, `<ScrollToTop />` and `<Footer />` are customly written components that we will write soon. It's always a good idea to write reusable Vue files into [components](https://gridsome.org/docs/components/#import-to-other-pages-or-components) to help organize your project.

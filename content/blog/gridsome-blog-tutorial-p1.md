@@ -3,6 +3,7 @@ title: How to build a personal developer blog with Vue.js, Gridsome and Vuetify 
 category: Coding
 excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
 created: 2020-10-10
+keywords: 'HTML,CSS,JavaScript,JSON,Vue,Gridsome,Vuetify,GraphQL'
 image: ./images/how-to-vue-gridsome-vuetify.png
 image_caption: Photo by Josh Arrants
 author: author1
@@ -76,7 +77,7 @@ due to its better performance, higher security, lower cost of scaling, and an ov
 
 To start installing Gridsome onto your local machine, open your terminal and make sure you have Node installed. I'd highly recommend opening your folder in VSCode and utilizing the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) to run commands with the text editor.
 
-```
+```sh
 node --version && npm -v
 ```
 
@@ -94,13 +95,13 @@ After you're done installing that, create a new folder with the name of the proj
 Make sure your terminal is located at the new directory you just created.
 We will create a new Gridsome project inside this folder using this command:
 
-```
+```sh
 gridsome create .
 ```
 
 Once that's done installing, we can run the development server with:
 
-```
+```sh
 gridsome develop
  // or
  npm run develop
@@ -114,7 +115,7 @@ at [localhost:8080/___explore](http://localhost:8080/___explore) (three undersco
 
 Upon running `gridsome create .` you can see that many files were generated.  
 
-```
+```html
 .
 ├── static/
 └── src/
