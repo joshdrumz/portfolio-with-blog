@@ -100,6 +100,51 @@ export default {
         { name: 'keywords', content: this.$page.blog.keywords }
       ]
     };
+  },
+  mounted() {
+    const highlights = document.querySelectorAll(
+      '.gridsome-highlight pre code'
+    );
+    // console.log(highlights);
+
+    highlights.forEach(code => {
+      const copyBtn = document.createElement('button');
+      copyBtn.innerHTML = `Copy ${code.className.substr(9, 12)}`;
+      copyBtn.addEventListener('click', this.handleCopyClick);
+      code.append(copyBtn);
+    });
+  },
+  methods: {
+    handleCopyClick(e) {
+      const { children } = e.target.parentElement;
+      const { innerText } = Array.from(children)[0];
+      this.copyToClipboard(innerText);
+      // alert(innerText);
+    },
+    copyToClipboard(str) {
+      const el = document.createElement('textarea');
+
+      el.value = str;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+
+      document.body.appendChild(el);
+
+      const selected =
+        document.getSelection().rangeCount > 0
+          ? document.getSelection().getRangeAt(0)
+          : false;
+
+      el.select();
+
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      if (selected) {
+        document.getSelection().removeAllRanges();
+        document.getSelection().addRange(selected);
+      }
+    }
   }
 };
 </script>
@@ -149,6 +194,22 @@ export default {
 .markdown >>> .language-text {
   background-color: #ddd;
   color: black;
+}
+
+.markdown >>> .gridsome-highlight button {
+  color: #adb5bd;
+  box-sizing: border-box;
+  transition: 0.5s ease-out;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0);
+  padding: 5px 10px;
+  font-size: 0.8em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0.15rem;
 }
 
 /**
