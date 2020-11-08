@@ -102,14 +102,12 @@ export default {
     };
   },
   mounted() {
-    const highlights = document.querySelectorAll(
-      '.gridsome-highlight pre code'
-    );
-    // console.log(highlights);
+    const highlights = document.querySelectorAll('.gridsome-highlight');
 
     highlights.forEach(code => {
       const copyBtn = document.createElement('button');
-      copyBtn.innerHTML = `Copy ${code.className.substr(9, 12)}`;
+      console.log(code.attributes[1].nodeValue);
+      copyBtn.innerHTML = `Copy ${code.attributes[1].nodeValue}`;
       copyBtn.addEventListener('click', this.handleCopyClick);
       code.append(copyBtn);
     });
@@ -119,7 +117,7 @@ export default {
       const { children } = e.target.parentElement;
       const { innerText } = Array.from(children)[0];
       this.copyToClipboard(innerText);
-      // alert(innerText);
+      alert(innerText);
     },
     copyToClipboard(str) {
       const el = document.createElement('textarea');
