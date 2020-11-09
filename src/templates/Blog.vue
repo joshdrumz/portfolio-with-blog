@@ -1,5 +1,19 @@
 <template>
   <Layout>
+    <template slot="home">
+      <v-alert
+        border="left"
+        colored-border
+        dismissible
+        type="success"
+        elevation="2"
+        transition="scale-transition"
+        :value="showAlert"
+        @click="showAlert = false"
+      >
+        Code copied!
+      </v-alert>
+    </template>
     <section id="title">
       <div class="my-8">
         <h1 class="display-2 font-weight-bold text-center">
@@ -101,6 +115,11 @@ export default {
       ]
     };
   },
+  data() {
+    return {
+      showAlert: false
+    };
+  },
   mounted() {
     const highlights = document.querySelectorAll('.gridsome-highlight');
 
@@ -115,8 +134,8 @@ export default {
     handleCopyClick(e) {
       const { children } = e.target.parentElement;
       const { innerText } = Array.from(children)[0];
+      this.showAlert = true;
       this.copyToClipboard(innerText);
-      // alert(innerText);
     },
     copyToClipboard(str) {
       const el = document.createElement('textarea');
@@ -255,5 +274,21 @@ export default {
 
 .markdown >>> .gridsome-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.8em;
+}
+
+.v-alert {
+  position: fixed;
+  z-index: 1;
+  width: 20%;
+  top: 10em;
+  right: 2em;
+}
+
+/* Phones */
+@media only screen and (max-width: 600px) {
+  .v-alert {
+    width: 45%;
+    top: 8em;
+  }
 }
 </style>
