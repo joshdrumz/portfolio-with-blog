@@ -138,7 +138,7 @@ Let's examine what each file is used for in our project.
 - `src/` - This directory contains most of the code that we will be building the site with.
   - `main.js` - Contains application configuration settings and has access to the **Client API**.
   - `components/` - Directory that holds reusable pieces of code for layouts and pages.
-  - `layouts/` - Files that are created here that are intended to **wrap** pages and templates. 
+  - `layouts/` - Files that are created here are intended to **wrap** pages and templates. 
     This is where you would reference a navigation bar, footer, etc.
   - `pages/` - All components in this directory become pages of the website. Gridsome uses what is 
     called a **file-system based router** and will create a path based on the file name, specifically located in this directory. For example, `src/pages/Index.vue` is currently our home page located at [localhost:8080/](http://localhost:8080/) and `src/pages/About.vue` is our about page located at [localhost:8080/about/](http://localhost:8080/about/).

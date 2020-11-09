@@ -104,12 +104,11 @@ export default {
   mounted() {
     const highlights = document.querySelectorAll('.gridsome-highlight');
 
-    highlights.forEach(code => {
+    highlights.forEach(div => {
       const copyBtn = document.createElement('button');
-      console.log(code.attributes[1].nodeValue);
-      copyBtn.innerHTML = `Copy ${code.attributes[1].nodeValue}`;
+      copyBtn.innerHTML = `Copy ${div.attributes[1].nodeValue}`;
       copyBtn.addEventListener('click', this.handleCopyClick);
-      code.append(copyBtn);
+      div.append(copyBtn);
     });
   },
   methods: {
@@ -117,7 +116,7 @@ export default {
       const { children } = e.target.parentElement;
       const { innerText } = Array.from(children)[0];
       this.copyToClipboard(innerText);
-      alert(innerText);
+      // alert(innerText);
     },
     copyToClipboard(str) {
       const el = document.createElement('textarea');

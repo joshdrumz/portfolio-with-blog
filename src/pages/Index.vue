@@ -115,7 +115,7 @@ export default {
           code: 'https://github.com/joshdrumz/expense-tracker'
         },
         {
-          src: require('@/assets/img/projects/foundnation-website.png'),
+          src: require('@/assets/img/projects/foundnation.png'),
           title: 'Foundnation',
           excerpt:
             'Designed and implemented a website for Foundnation, a non-profit organization revitalized around the Pay It Forward scholarship movement. I used the Django framework, a Python based web framework, to build this site.',

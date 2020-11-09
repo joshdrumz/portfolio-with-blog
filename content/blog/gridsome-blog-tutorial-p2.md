@@ -42,7 +42,7 @@ Also, for GraphQL syntax highlighting to work with Gridsome, add this snippet to
 
 Let's recall what the purpose of a [layout](https://gridsome.org/docs/layouts/#layouts) is in Gridsome:
 
-> **/layouts**: Files that are created here that are intended to wrap pages and templates. This is where you would reference a navigation bar, footer, etc.
+> **/layouts**: Files that are created here are intended to wrap pages and templates. This is where you would reference a navigation bar, footer, etc.
 
 This is the place where we will create a navigation bar, footer, and other components that are meant to be visible on all pages of our Gridsome site.
 

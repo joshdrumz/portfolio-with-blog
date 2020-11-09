@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>How to build a personal developer blog with Vue.js, Gridsome and Vuetify - Josh Arrants</title><meta name="gridsome:hash" content="0d1be454b33f21af4cfd5bce11f19caa58c2bff8"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.20"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.9bb7ffafafc09ac851d81afb65b8ef59.png"><link data-vue-tag="ssr" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><link data-vue-tag="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="preload" href="/assets/css/0.styles.bc33597a.css" as="style"><link rel="preload" href="/assets/js/app.be286d7c.js" as="script"><link rel="preload" href="/assets/js/page--src-templates-blog-vue.043997d2.js" as="script"><link rel="prefetch" href="/assets/js/page--src-pages-404-vue.0e6aba34.js"><link rel="prefetch" href="/assets/js/page--src-pages-about-vue.ca06d40c.js"><link rel="prefetch" href="/assets/js/page--src-pages-blog-vue.340d9fa0.js"><link rel="prefetch" href="/assets/js/page--src-pages-index-vue.b861283f.js"><link rel="prefetch" href="/assets/js/page--src-templates-category-vue.b66e1de8.js"><link rel="stylesheet" href="/assets/css/0.styles.bc33597a.css"><style data-vue-tag="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #1976d2; }
+.v-application .primary {
+  background-color: #1976d2 !important;
+  border-color: #1976d2 !important;
+}
+.v-application .primary--text {
+  color: #1976d2 !important;
+  caret-color: #1976d2 !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #c7fdff !important;
+  border-color: #c7fdff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #c7fdff !important;
+  caret-color: #c7fdff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #a8e0ff !important;
+  border-color: #a8e0ff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #a8e0ff !important;
+  caret-color: #a8e0ff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #8ac5ff !important;
+  border-color: #8ac5ff !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #8ac5ff !important;
+  caret-color: #8ac5ff !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #6aaaff !important;
+  border-color: #6aaaff !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #6aaaff !important;
+  caret-color: #6aaaff !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #488fef !important;
+  border-color: #488fef !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #488fef !important;
+  caret-color: #488fef !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #005eb6 !important;
+  border-color: #005eb6 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #005eb6 !important;
+  caret-color: #005eb6 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00479b !important;
+  border-color: #00479b !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00479b !important;
+  caret-color: #00479b !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #003180 !important;
+  border-color: #003180 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #003180 !important;
+  caret-color: #003180 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #001e67 !important;
+  border-color: #001e67 !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #001e67 !important;
+  caret-color: #001e67 !important;
+}
+.v-application .secondary {
+  background-color: #424242 !important;
+  border-color: #424242 !important;
+}
+.v-application .secondary--text {
+  color: #424242 !important;
+  caret-color: #424242 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #c1c1c1 !important;
+  border-color: #c1c1c1 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #c1c1c1 !important;
+  caret-color: #c1c1c1 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #a6a6a6 !important;
+  border-color: #a6a6a6 !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #a6a6a6 !important;
+  caret-color: #a6a6a6 !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #8b8b8b !important;
+  border-color: #8b8b8b !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #8b8b8b !important;
+  caret-color: #8b8b8b !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #727272 !important;
+  border-color: #727272 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #727272 !important;
+  caret-color: #727272 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #595959 !important;
+  border-color: #595959 !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #595959 !important;
+  caret-color: #595959 !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #2c2c2c !important;
+  border-color: #2c2c2c !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #2c2c2c !important;
+  caret-color: #2c2c2c !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #171717 !important;
+  border-color: #171717 !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #171717 !important;
+  caret-color: #171717 !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #82b1ff !important;
+  border-color: #82b1ff !important;
+}
+.v-application .accent--text {
+  color: #82b1ff !important;
+  caret-color: #82b1ff !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #ffffff !important;
+  caret-color: #ffffff !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #f8ffff !important;
+  border-color: #f8ffff !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #f8ffff !important;
+  caret-color: #f8ffff !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #daffff !important;
+  border-color: #daffff !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #daffff !important;
+  caret-color: #daffff !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #bce8ff !important;
+  border-color: #bce8ff !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #bce8ff !important;
+  caret-color: #bce8ff !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #9fccff !important;
+  border-color: #9fccff !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #9fccff !important;
+  caret-color: #9fccff !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #6596e2 !important;
+  border-color: #6596e2 !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #6596e2 !important;
+  caret-color: #6596e2 !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #467dc6 !important;
+  border-color: #467dc6 !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #467dc6 !important;
+  caret-color: #467dc6 !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #2364aa !important;
+  border-color: #2364aa !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #2364aa !important;
+  caret-color: #2364aa !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #004c90 !important;
+  border-color: #004c90 !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #004c90 !important;
+  caret-color: #004c90 !important;
+}
+.v-application .error {
+  background-color: #ff5252 !important;
+  border-color: #ff5252 !important;
+}
+.v-application .error--text {
+  color: #ff5252 !important;
+  caret-color: #ff5252 !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffe4d5 !important;
+  border-color: #ffe4d5 !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffe4d5 !important;
+  caret-color: #ffe4d5 !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffc6b9 !important;
+  border-color: #ffc6b9 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffc6b9 !important;
+  caret-color: #ffc6b9 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ffa99e !important;
+  border-color: #ffa99e !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ffa99e !important;
+  caret-color: #ffa99e !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #ff8c84 !important;
+  border-color: #ff8c84 !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #ff8c84 !important;
+  caret-color: #ff8c84 !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #ff6f6a !important;
+  border-color: #ff6f6a !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #ff6f6a !important;
+  caret-color: #ff6f6a !important;
+}
+.v-application .error.darken-1 {
+  background-color: #df323b !important;
+  border-color: #df323b !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #df323b !important;
+  caret-color: #df323b !important;
+}
+.v-application .error.darken-2 {
+  background-color: #bf0025 !important;
+  border-color: #bf0025 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #bf0025 !important;
+  caret-color: #bf0025 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #9f0010 !important;
+  border-color: #9f0010 !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #9f0010 !important;
+  caret-color: #9f0010 !important;
+}
+.v-application .error.darken-4 {
+  background-color: #800000 !important;
+  border-color: #800000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #800000 !important;
+  caret-color: #800000 !important;
+}
+.v-application .info {
+  background-color: #2196f3 !important;
+  border-color: #2196f3 !important;
+}
+.v-application .info--text {
+  color: #2196f3 !important;
+  caret-color: #2196f3 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #d4ffff !important;
+  border-color: #d4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #d4ffff !important;
+  caret-color: #d4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #b5ffff !important;
+  border-color: #b5ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #b5ffff !important;
+  caret-color: #b5ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #95e8ff !important;
+  border-color: #95e8ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #95e8ff !important;
+  caret-color: #95e8ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #75ccff !important;
+  border-color: #75ccff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #75ccff !important;
+  caret-color: #75ccff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #51b0ff !important;
+  border-color: #51b0ff !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #51b0ff !important;
+  caret-color: #51b0ff !important;
+}
+.v-application .info.darken-1 {
+  background-color: #007cd6 !important;
+  border-color: #007cd6 !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #007cd6 !important;
+  caret-color: #007cd6 !important;
+}
+.v-application .info.darken-2 {
+  background-color: #0064ba !important;
+  border-color: #0064ba !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #0064ba !important;
+  caret-color: #0064ba !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004d9f !important;
+  border-color: #004d9f !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004d9f !important;
+  caret-color: #004d9f !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003784 !important;
+  border-color: #003784 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003784 !important;
+  caret-color: #003784 !important;
+}
+.v-application .success {
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
+}
+.v-application .success--text {
+  color: #4caf50 !important;
+  caret-color: #4caf50 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #dcffd6 !important;
+  border-color: #dcffd6 !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #dcffd6 !important;
+  caret-color: #dcffd6 !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #beffba !important;
+  border-color: #beffba !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #beffba !important;
+  caret-color: #beffba !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #a2ff9e !important;
+  border-color: #a2ff9e !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #a2ff9e !important;
+  caret-color: #a2ff9e !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #85e783 !important;
+  border-color: #85e783 !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #85e783 !important;
+  caret-color: #85e783 !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #69cb69 !important;
+  border-color: #69cb69 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #69cb69 !important;
+  caret-color: #69cb69 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #2d9437 !important;
+  border-color: #2d9437 !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #2d9437 !important;
+  caret-color: #2d9437 !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00791e !important;
+  border-color: #00791e !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00791e !important;
+  caret-color: #00791e !important;
+}
+.v-application .success.darken-3 {
+  background-color: #006000 !important;
+  border-color: #006000 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #006000 !important;
+  caret-color: #006000 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #004700 !important;
+  border-color: #004700 !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #004700 !important;
+  caret-color: #004700 !important;
+}
+.v-application .warning {
+  background-color: #fb8c00 !important;
+  border-color: #fb8c00 !important;
+}
+.v-application .warning--text {
+  color: #fb8c00 !important;
+  caret-color: #fb8c00 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffff9e !important;
+  border-color: #ffff9e !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffff9e !important;
+  caret-color: #ffff9e !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #fffb82 !important;
+  border-color: #fffb82 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #fffb82 !important;
+  caret-color: #fffb82 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffdf67 !important;
+  border-color: #ffdf67 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffdf67 !important;
+  caret-color: #ffdf67 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #ffc24b !important;
+  border-color: #ffc24b !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #ffc24b !important;
+  caret-color: #ffc24b !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffa72d !important;
+  border-color: #ffa72d !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffa72d !important;
+  caret-color: #ffa72d !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #db7200 !important;
+  border-color: #db7200 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #db7200 !important;
+  caret-color: #db7200 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #bb5900 !important;
+  border-color: #bb5900 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #bb5900 !important;
+  caret-color: #bb5900 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #9d4000 !important;
+  border-color: #9d4000 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #9d4000 !important;
+  caret-color: #9d4000 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #802700 !important;
+  border-color: #802700 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #802700 !important;
+  caret-color: #802700 !important;
+}</style><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-app="true" data-server-rendered="true" id="app" id="app" class="v-application v-application--is-ltr theme--light" data-v-3cba0050><div class="v-application--wrap"><header class="v-sheet theme--dark v-toolbar v-toolbar--dense v-toolbar--extended v-app-bar v-app-bar--elevate-on-scroll v-app-bar--fixed v-app-bar--hide-shadow" style="height:96px;margin-top:0px;transform:translateY(0px);left:0px;right:0px;" data-v-36326df4><div class="v-toolbar__content" style="height:48px;"><button type="button" class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" data-v-36326df4><span class="v-btn__content"><a href="/" class="active" data-v-36326df4><i aria-hidden="true" class="v-icon notranslate mdi mdi-code-tags theme--dark" data-v-36326df4></i></a></span></button><div class="spacer" data-v-36326df4></div><div class="spacer" data-v-36326df4></div><button type="button" class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" data-v-36326df4><span class="v-btn__content"><a href="https://www.linkedin.com/in/josh-arrants/" target="_blank" rel="noopener" data-v-36326df4><i aria-hidden="true" class="v-icon notranslate mdi mdi-linkedin theme--dark" data-v-36326df4></i></a></span></button><button type="button" class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" data-v-36326df4><span class="v-btn__content"><a href="https://github.com/joshdrumz/" target="_blank" rel="noopener" data-v-36326df4><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" data-v-36326df4></i></a></span></button><button type="button" class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" data-v-36326df4><span class="v-btn__content"><a href="mailto:joshgarrants@gmail.com" data-v-36326df4><i aria-hidden="true" class="v-icon notranslate mdi mdi-email theme--dark" data-v-36326df4></i></a></span></button><button type="button" class="v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" data-v-36326df4><span class="v-btn__content"><a href="/" class="active" data-v-36326df4><i aria-hidden="true" class="v-icon notranslate mdi mdi-file-document-outline theme--dark" data-v-36326df4></i></a></span></button></div><div class="v-toolbar__extension" style="height:48px;"><div class="v-tabs v-tabs--centered v-tabs--fixed-tabs theme--dark" data-v-36326df4><div role="tablist" class="v-item-group theme--dark v-slide-group v-tabs-bar v-tabs-bar--is-mobile v-tabs-bar--show-arrows white--text"><div class="v-slide-group__prev v-slide-group__prev--disabled"><i aria-hidden="true" class="v-icon notranslate v-icon--disabled  fas fa-chevron-left theme--dark"></i></div><div class="v-slide-group__wrapper"><div class="v-slide-group__content v-tabs-bar__content"><div class="v-tabs-slider-wrapper" style="transition:none;"><div class="v-tabs-slider" style="background-color:#65e620;border-color:#65e620;" data-v-36326df4></div></div><a href="/" tabindex="0" aria-selected="true" role="tab" class="v-tab" data-v-36326df4>Home</a><a href="/about" tabindex="0" aria-selected="false" role="tab" class="v-tab" data-v-36326df4>About</a><a href="/blog" aria-current="page" tabindex="0" aria-selected="false" role="tab" class="v-tab--active v-tab" data-v-36326df4>Blog</a><a href="/contact" tabindex="0" aria-selected="false" role="tab" class="v-tab" data-v-36326df4>Contact</a></div></div><div class="v-slide-group__next v-slide-group__next--disabled"><i aria-hidden="true" class="v-icon notranslate v-icon--disabled  fas fa-chevron-right theme--dark"></i></div></div></div></div></header><!----><main class="v-main" style="padding-top:48px;padding-right:0px;padding-bottom:0px;padding-left:0px;"><div class="v-main__wrap"><div class="container container--fluid"><div class="row"><div class="col-sm-6 offset-sm-3 col"><section id="title" data-v-3cba0050><div class="my-8" data-v-3cba0050><h1 class="display-2 font-weight-bold text-center" data-v-3cba0050>
+        How to build a personal developer blog with Vue.js, Gridsome and Vuetify
+      </h1><div class="d-flex justify-center mt-6" data-v-3cba0050><h4 class="font-weight-light text-xs-body-1" data-v-3cba0050>
+          Josh Arrants
+        </h4><p class="px-2" data-v-3cba0050>|</p><h4 class="font-weight-light text-xs-body-1" data-v-3cba0050>
+          January 10th 2020
+        </h4><p class="px-2" data-v-3cba0050>|</p><h4 class="font-weight-light text-xs-body-1" data-v-3cba0050>
+          Posted in
+          <a href="/category/coding" class="text-decoration-none green--text text--darken-4" data-v-3cba0050>
+            Coding
+          </a></h4></div></div></section><section id="image" class="mb-12" data-v-3cba0050><div aria-label="Photo by Josh Arrants" role="img" class="v-image v-responsive theme--light" data-v-3cba0050><div class="v-image__image v-image__image--preload v-image__image--cover" style="background-image:;background-position:center center;"></div><div class="v-image__placeholder"><div class="row fill-height ma-0 align-center justify-center" data-v-3cba0050><div role="progressbar" aria-valuemin="0" aria-valuemax="100" class="v-progress-circular v-progress-circular--indeterminate grey--text text--lighten-5" style="height:32px;width:32px;" data-v-3cba0050><svg xmlns="http://www.w3.org/2000/svg" viewBox="22.857142857142858 22.857142857142858 45.714285714285715 45.714285714285715" style="transform:rotate(0deg);"><circle fill="transparent" cx="45.714285714285715" cy="45.714285714285715" r="20" stroke-width="5.714285714285714" stroke-dasharray="125.664" stroke-dashoffset="125.66370614359172px" class="v-progress-circular__overlay"></circle></svg><div class="v-progress-circular__info"></div></div></div></div><div class="v-responsive__content"></div></div><p class="subheading font-italic text-center mt-4 grey--text" data-v-3cba0050>
+      Photo by Josh Arrants
+    </p></section><div class="text-md-h6 font-weight-regular px-2 markdown" data-v-3cba0050><h2 id="table-of-contents"><a href="#table-of-contents" aria-hidden="true"><span class="icon icon-link"></span></a>Table of Contents</h2>
+<ul>
+<li><a href="#ossa-narrat-sortita-fecerat-sit-conataque">Ossa narrat sortita fecerat sit conataque</a></li>
+</ul>
+<div class="gridsome-highlight has-highlighted-lines" data-language="js"><pre style="counter-reset: linenumber 0" class="language-js line-numbers"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">Vue<span class="token punctuation">,</span> <span class="token punctuation">{</span> appOptions<span class="token punctuation">,</span> head <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  head<span class="token punctuation">.</span>link<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="gridsome-highlight-code-line">    rel<span class="token operator">:</span> <span class="token string">"stylesheet"</span><span class="token punctuation">,</span></span>    href<span class="token operator">:</span>
+      <span class="token string">"https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  head<span class="token punctuation">.</span>link<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    rel<span class="token operator">:</span> <span class="token string">"stylesheet"</span><span class="token punctuation">,</span>
+    href<span class="token operator">:</span>
+      <span class="token string">"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> opts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// opts includes, vuetify themes, icons, etc.</span>
+  Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuetify<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  appOptions<span class="token punctuation">.</span>vuetify <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuetify</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Set default layout as a global component</span>
+  Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"Layout"</span><span class="token punctuation">,</span> DefaultLayout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<h2 id="ossa-narrat-sortita-fecerat-sit-conataque"><a href="#ossa-narrat-sortita-fecerat-sit-conataque" aria-hidden="true"><span class="icon icon-link"></span></a>Ossa narrat sortita fecerat sit conataque</h2>
+<p>Lorem markdownum aptos pes, Inachidos caput corrumpere! Hanc haud quam <a href="http://quisquis-in.io/ramossuperum" target="_blank" rel="nofollow noopener noreferrer">est
+candore</a> conpulit meriti. Vincere ferocia
+arva.</p>
+<h2 id="eleis-celeberrimus-loci-ait-falsa-infelix-tuoque"><a href="#eleis-celeberrimus-loci-ait-falsa-infelix-tuoque" aria-hidden="true"><span class="icon icon-link"></span></a>Eleis celeberrimus loci ait falsa infelix tuoque</h2>
+<p>Mox haberet ambae torique dedisses quibus que membraque nervo remanet, digiti
+iam neve clamorque fallaces. Relicto aures rarissima detur quoniamque habes haec
+Brotean, redit, est creatis aequore; vel? Impetus glaciali coruscant Bacchus
+<strong>mirata pararet potes</strong>, atque mea rumpere sustulerat umeris fuit.</p>
+<h2 id="facundis-quid"><a href="#facundis-quid" aria-hidden="true"><span class="icon icon-link"></span></a>Facundis quid</h2>
+<p>Venerit conveniunt per memori sed laniarat Dromas, solum tum. Undis lacteus
+infitiatur adest <a href="http://www.tollit-clamavit.io/" target="_blank" rel="nofollow noopener noreferrer">acies certius</a> inscius, cum ad
+emittunt dextra.</p>
+<p>Fronde ait ferox medium, virginis igni sanguine micant: <strong>inertia</strong> ore quoque?
+Iaculi quicquid <strong>virescere misit stirpe</strong> Theseus Venerem! Falce taceo oves,
+idem fugit, non abiit palam quantum, fontes vinci et abiit. Deiectoque exstabant
+<strong>Phrygiae</strong> cepit munus tanto.</p>
+<h2 id="et-capienda-peneia"><a href="#et-capienda-peneia" aria-hidden="true"><span class="icon icon-link"></span></a>Et capienda Peneia</h2>
+<p><em>Haec moenia pater</em> signataque urget, ait quies laqueo sumitque. Misit sit
+moribunda terrae sequar longis hoc, cingebant copia cultros! Alis templi taeda
+solet suum mihi penates quae. Cecidere <em>deo agger infantem</em> indetonsusque ipsum;
+ova formasque cornu et pectora <a href="http://www.tibibene.io/iter.html" target="_blank" rel="nofollow noopener noreferrer">voce oculos</a>,
+prodis pariterque sacra finibus, Sabinae. Fugarant fuerat, famam ait toto imas
+sorte pectora, est et, procubuit sua Appenninigenae habes postquam.</p>
+<h2 id="quoque-aut-gurgite-aliquis-igneus"><a href="#quoque-aut-gurgite-aliquis-igneus" aria-hidden="true"><span class="icon icon-link"></span></a>Quoque aut gurgite aliquis igneus</h2>
+<p>Spatiosa ferax iam sis ex quae peperit iacentes, grates rogat quae senserat nec
+nec verba harenas inplent. Per dum necis in in versus quin loquendi latens;
+inde. <strong>Coit insano</strong> nepos fuerit potest hactenus, ab locis Phoenicas, obsisto
+erat!</p>
+<blockquote>
+<p>Nec uterum Aurorae petentes abstulit. Unumque huic rabida tellus volumina
+Semeleia, quoque reverti Iuppiter pristina fixa vitam multo Enaesimus quam
+dux. Sua <strong>damus</strong> decipere, ut <strong>obortas</strong> nomen sine vestrae vita.</p>
+</blockquote>
+<p>Turbine ora sum securae, purpureae lacertis Pindumve superi: tellus liquerat
+<strong>carinis</strong>. Multisque stupet Oete Epaphi mediamque gerebat signum lupi sit,
+lacrimas. Tumidi fassusque hosti, deus <a href="http://hisnurus.com/putares-pars" target="_blank" rel="nofollow noopener noreferrer">vixque desint
+dedit</a> dum et, quo non, dea <a href="http://mactata.org/inducere.php" target="_blank" rel="nofollow noopener noreferrer">suras
+tantum</a>. Unus acta capulo. In Dryope sic
+vestigia est neu ignis in <strong>illa mirantur agilis</strong> densior.</p>
+</div></div></div></div></div></main><footer class="v-footer v-sheet theme--dark v-footer--padless" data-v-a87cce66><div class="flex v-card v-card--flat v-sheet theme--dark rounded-0" data-v-a87cce66><div class="v-card__title teal" data-v-a87cce66><strong class="subheading" data-v-a87cce66>Connect with me!</strong><div class="spacer" data-v-a87cce66></div><button type="button" class="mx-4 v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" data-v-a87cce66><span class="v-btn__content"><a href="https://www.linkedin.com/in/josh-arrants/" target="_blank" rel="noopener" data-v-a87cce66><i aria-hidden="true" class="v-icon notranslate mdi mdi-linkedin theme--dark" style="font-size:24px;" data-v-a87cce66></i></a></span></button><button type="button" class="mx-4 v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" data-v-a87cce66><span class="v-btn__content"><a href="https://github.com/joshdrumz/" target="_blank" rel="noopener" data-v-a87cce66><i aria-hidden="true" class="v-icon notranslate mdi mdi-github theme--dark" style="font-size:24px;" data-v-a87cce66></i></a></span></button></div><div class="v-card__text py-2 white--text text-center" data-v-a87cce66>
+      2020 — <strong data-v-a87cce66>Josh Arrants</strong></div></div></footer></div></div>
+    <script>window.__INITIAL_STATE__={"data":{"blog":{"title":"How to build a personal developer blog with Vue.js, Gridsome and Vuetify","path":"\u002Fblog\u002Fhow-to-build-a-personal-developer-blog-with-vue-js-gridsome-and-vuetify","image":{"type":"image","mimeType":"image\u002Fpng","src":"\u002Fassets\u002Fstatic\u002Fhow-to-vue-gridsome-vuetify.0b85c65.697489eae3cffbc2db3cb55ad59754d2.png","size":{"width":1920,"height":1080},"sizes":"(max-width: 1920px) 100vw, 1920px","srcset":["\u002Fassets\u002Fstatic\u002Fhow-to-vue-gridsome-vuetify.1b91758.697489eae3cffbc2db3cb55ad59754d2.png 480w","\u002Fassets\u002Fstatic\u002Fhow-to-vue-gridsome-vuetify.3df3210.697489eae3cffbc2db3cb55ad59754d2.png 1024w","\u002Fassets\u002Fstatic\u002Fhow-to-vue-gridsome-vuetify.0b85c65.697489eae3cffbc2db3cb55ad59754d2.png 1920w"],"dataUri":"data:image\u002Fsvg+xml,%3csvg fill='none' viewBox='0 0 1920 1080' xmlns='http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg' xmlns:xlink='http:\u002F\u002Fwww.w3.org\u002F1999\u002Fxlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-71d3ff281351e426b0244e3d37fa14b6'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'\u002F%3e%3c\u002Ffilter%3e%3c\u002Fdefs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-71d3ff281351e426b0244e3d37fa14b6)' width='1920' height='1080' xlink:href='data:image\u002Fpng%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAkCAYAAAA5DDySAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAI8ElEQVRo3u1aW1SU1xX%2bQYhch7lfCIhRozHekOswzDDchIAgEG4DyE0UuYpiJCCgIF4QpShiNEqqRk3ViEZNTbS5tMuulZXVrvShq119yHPXavvcl66mX\u002Fc%2b\u002F8w4Il1qQKitD3v95z9nn332\u002Fvbl7H9AMiQq8f9M0o\u002FdqLeE\u002FKh5vSdZVTIxD63rJ%2b\u002Fx3GfVCDIkqolU\u002F\u002FGcWQHArRQr7amI5QlgOY1kow0JChhjA2CM8RdjFwiPA0m8FgUMsV5E3tDH%2bxC\u002Fnzz\u002FBNBnLQL05mDohREKAYLeIo\u002F1ZoWYN1hlj7k8b4wNhM6uhbJ8FRSboqFL1j4E4RGAFdDF%2b0OfZIKhsh56RzUMOcUwZNigMwdAaw56xBlzAsCaA0WIO1WP1Xm5WJ6SDF1iMBYkL8aq5CxEthXDfKEJiyojoSNvG2zktbgghFRFwnu8EdIn3ZAmuqB0vClAEZHhlq%2bAyW7AqymhMCXpoTv4W%2bhH\u002FwFj03cwbKhGWJICEekRMFpVcxMB7FUthe%2byJivWfTsC61AH4tJqsSQtCqvSsmEubkDqZ4OwftwBU4pOKGmMCxTGSze64HWuBYHb7FCWrSQPqx%2bpCSxbE%2beHZQWx2HHvr2i%2b8g0WNHZBP\u002FJ3hDg%2bQM67bZj4\u002Fp\u002FovPQxtPGBc1cDmHRkVOzJTUj96hDiquoQs24jYtI3IvFoO9IeDGJxdRS00X7yPgp79jwbr8kOhynSF6Y1viL8DfHBMEb5yTWB5VvVUMf4onTsGgb\u002FCKT29EPZ\u002FRsYSrowfPdr3P8bkLy1ACFR8ygK1HOUAuQpHYVuROFSpHy5H7bxLkTbyxFfuxlpvzyMmNEaARCHPoe40rEC0s3dwvNsuDYjlGpAjABGk7MQQU2Joibo7RoYqchpYudjaX4ser4BWiZ%2bB2VpM2w7OnHvz0D\u002FxH2oaN2zGM5uCniAoI32x5qBQqT\u002F%2bgjMbY2wne5EyhcDWJC\u002FxAmAmjwbAAWHP%2bW8gqLCtNoHIdVrId3uharkDfh3Z0O62weJUkZZukIAZrBpoYr2RuFPzuHg74HI2mJ0nL%2bIe38BEmoyEBLtMy3vzwwAzlsglLxpI%2b8m\u002F3wf0r4%2bjNV9%2bQIYg\u002FOeNxKPKnMBpG4HAoojYYr1hy5F764BunQjfNsJhN0lUGWEw0D8nAZcC17Pi0LXgx\u002FQfvtPuPH9D%2bi7\u002FjlUMa%2bIAjhnjdDjUeCHN7anIP3BMKzXOhBKBjEwrobG1QPMq0uB1JojjGQQTGvJkLgAKDMjIDWth0%2bNXa4BTn4jNT8cBRuGzmDkD6Di9y%2bYq9KhjPadtvdnBIDJ0WC53I7l7anQRM133\u002F8uEEQUZL8GqaOIqBD%2bVfEIKl0Dv9pESF2lkHYVQJ0pe9\u002FdGDG48X5YmL0SR74Deq\u002FeIePl0J\u002FTVngq43XxQQjPWyRfe1zZPVpat0cFCAvh05YFqa8CUn8lpL3l8G1OhzojTKx7doXi%2biRjudqXDo3Asiln2pX\u002FuUaAjq6zyd2ZfhIIBurgeKwhg1W5i6FJD5WvQg\u002Fj9ZO\u002FBZxATLfzeyYAHlPmaUgUPdVT8CjdRstt8MMPo6lJNen5ZJrqA%2bvZIsAlgNEnr804JTAFy8%2bn4DclPL1sT92nHQE6Cr2gt15HYNbSF4JYV9Z52hEgA6CANkkHqcwOqTyVKGUSTTX3LOtPy\u002FMM55GuGvqAMlgUMweAVwldVaW2SWSFVJQALxp7OZIgCR6roHkMGL8XWeBNY29aF1QmP8U6yxA8sgye43Uvh80tw8XL8y5eqcQqy%2bS5x3SyCV1Z5xkFgA%2bVHM4DnU8vUsKwNQ9SMSlWmID5G9PgQ17geSkvhu75dVBvzhFjqSDuUeI5kjG\u002FMg2mhgKSYaG5aEjU%2b\u002FPYuyxZ5nk7Xn7SPMvT1W%2bATwV5mr4UhZxSD73cullnAQAyWlGbRR8l57HuQDuyDu1C0Ugvdnx4AqGNb2N1Rw2se5vRc\u002FUscg6\u002Fi0QaJ%2b5pgm1vCyz0tPdvox6\u002Fl\u002Fhq0fzTERQf24v0\u002FTtg7mlAyr42bDo9SPzN4n097Wc%2bc28DDt68iI1j%2bxHZWYdk4vOrTJ\u002FCObMCgAWqumxsv3ACh29\u002FhJG711BLSp\u002F58g5eay1FNxmecXCnMPa9%2b5%2bgYmxAgHP8s%2btoIYPf\u002F%2bIWjtz5GZbvrETtqUMYvHUZw59exRDJqj9zhPbcFDLfuXQSE9\u002F%2bikDowMpd1QIAlt195SxOfD6BVzamzgEAzoN8K1KxsLUE4c1F4qndkouFLSUiFRbQHEcIh%2burFBEhNOZ0MTbkQ7kpG4u2OcQ8e3DJ9jLoaU1P4W3Ymi\u002Fz0ZPBe3NnlXhnmQGUAkvaysQ5vN9xvE\u002FoIPSa9Qig4iZykHO2gPI0Z63IYTY4qDqT5ilvN0TL%2bwrNci7TXgZGFDLax4VMjHMi5fzPJRkbomT%2b3ChZJvGx8UE1mbK3XTwUgfPKk2V9iN9rtgAQB5HS7IGE3kYk9bWi%2br0Dog7E7N6CuO6t2Pz%2bELIHO5DU3yrSoXhkjyheYU2F2HJmSKRG1uAutJ47jtyhTqQObBc1gWsI1wF9fZ7g4VpQfmKfkMXyuVaseKcaFTRXNtqPtguj4slnsEO83JHwHAEQXiPvck72XvsA284fx9i9GyI3uR5EtBSj\u002FcMxkdP9188j\u002F%2bhuUSMKhrtFKO%2bhPa3njqFhfJh4LmHgxgXK\u002FSvYevYojlHOD0xcwNIdFThJMndePInTv7glAGBge66Oo%2bPyKYx\u002F9amoG23nR9H50WnhBHdEPfcUEPe9VVxJnIvquvUi1zk32ZMclgHVGdDQ9Rdc8xZ5p4S8VkV1olCEcmhjAc1nIpB4GBD15vWCl9%2bZn%2bsD83EUsBw%2bg%2bf5eg10vjOPis5lOcsILNZF1m82awC\u002F893tIq4JnM%2biuXGtORsXzn%2bxZpX5uKFxNknuvfxe7KQSq7PhSXy45mqa3Gc6ZXC9mEK3mQdACLc\u002FjAIel01BDvtja17c1JR5zE\u002FB88i7wz41\u002FxR7hOzJepGuMwhAiPgEVaaFEYW\u002FIBQm\u002F31hRj%2bHxWfri0Mz%2bjn8TD%2bI\u002FBfR9CPg5f8HvATgJQD\u002F6\u002FRvYILMG0rf0%2bMAAAAASUVORK5CYII=' \u002F%3e%3c\u002Fsvg%3e"},"image_caption":"Photo by Josh Arrants","excerpt":"In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!","category":{"title":"Coding","path":"\u002Fcategory\u002Fcoding"},"content":"\u003Ch2 id=\"table-of-contents\"\u003E\u003Ca href=\"#table-of-contents\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003ETable of Contents\u003C\u002Fh2\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Ca href=\"#ossa-narrat-sortita-fecerat-sit-conataque\"\u003EOssa narrat sortita fecerat sit conataque\u003C\u002Fa\u003E\u003C\u002Fli\u003E\n\u003C\u002Ful\u003E\n\u003Cdiv class=\"gridsome-highlight has-highlighted-lines\" data-language=\"js\"\u003E\u003Cpre style=\"counter-reset: linenumber 0\" class=\"language-js line-numbers\"\u003E\u003Ccode class=\"language-js\"\u003E\u003Cspan class=\"token keyword\"\u003Eexport\u003C\u002Fspan\u003E \u003Cspan class=\"token keyword\"\u003Edefault\u003C\u002Fspan\u003E \u003Cspan class=\"token keyword\"\u003Efunction\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E(\u003C\u002Fspan\u003E\u003Cspan class=\"token parameter\"\u003EVue\u003Cspan class=\"token punctuation\"\u003E,\u003C\u002Fspan\u003E \u003Cspan class=\"token punctuation\"\u003E{\u003C\u002Fspan\u003E appOptions\u003Cspan class=\"token punctuation\"\u003E,\u003C\u002Fspan\u003E head \u003Cspan class=\"token punctuation\"\u003E}\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E)\u003C\u002Fspan\u003E \u003Cspan class=\"token punctuation\"\u003E{\u003C\u002Fspan\u003E\n  head\u003Cspan class=\"token punctuation\"\u003E.\u003C\u002Fspan\u003Elink\u003Cspan class=\"token punctuation\"\u003E.\u003C\u002Fspan\u003E\u003Cspan class=\"token function\"\u003Epush\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E(\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E{\u003C\u002Fspan\u003E\n\u003Cspan class=\"gridsome-highlight-code-line\"\u003E    rel\u003Cspan class=\"token operator\"\u003E:\u003C\u002Fspan\u003E \u003Cspan class=\"token string\"\u003E\"stylesheet\"\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E,\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E    href\u003Cspan class=\"token operator\"\u003E:\u003C\u002Fspan\u003E\n      \u003Cspan class=\"token string\"\u003E\"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css\"\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E,\u003C\u002Fspan\u003E\n  \u003Cspan class=\"token punctuation\"\u003E}\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E)\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E;\u003C\u002Fspan\u003E\n\n  head\u003Cspan class=\"token punctuation\"\u003E.\u003C\u002Fspan\u003Elink\u003Cspan class=\"token punctuation\"\u003E.\u003C\u002Fspan\u003E\u003Cspan class=\"token function\"\u003Epush\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E(\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E{\u003C\u002Fspan\u003E\n    rel\u003Cspan class=\"token operator\"\u003E:\u003C\u002Fspan\u003E \u003Cspan class=\"token string\"\u003E\"stylesheet\"\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E,\u003C\u002Fspan\u003E\n    href\u003Cspan class=\"token operator\"\u003E:\u003C\u002Fspan\u003E\n      \u003Cspan class=\"token string\"\u003E\"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900\"\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E,\u003C\u002Fspan\u003E\n  \u003Cspan class=\"token punctuation\"\u003E}\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E)\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E;\u003C\u002Fspan\u003E\n\n  \u003Cspan class=\"token keyword\"\u003Econst\u003C\u002Fspan\u003E opts \u003Cspan class=\"token operator\"\u003E=\u003C\u002Fspan\u003E \u003Cspan class=\"token punctuation\"\u003E{\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E}\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E;\u003C\u002Fspan\u003E \u003Cspan class=\"token comment\"\u003E\u002F\u002F opts includes, vuetify themes, icons, etc.\u003C\u002Fspan\u003E\n  Vue\u003Cspan class=\"token punctuation\"\u003E.\u003C\u002Fspan\u003E\u003Cspan class=\"token function\"\u003Euse\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E(\u003C\u002Fspan\u003EVuetify\u003Cspan class=\"token punctuation\"\u003E)\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E;\u003C\u002Fspan\u003E\n\n  appOptions\u003Cspan class=\"token punctuation\"\u003E.\u003C\u002Fspan\u003Evuetify \u003Cspan class=\"token operator\"\u003E=\u003C\u002Fspan\u003E \u003Cspan class=\"token keyword\"\u003Enew\u003C\u002Fspan\u003E \u003Cspan class=\"token class-name\"\u003EVuetify\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E(\u003C\u002Fspan\u003Eopts\u003Cspan class=\"token punctuation\"\u003E)\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E;\u003C\u002Fspan\u003E\n\n  \u003Cspan class=\"token comment\"\u003E\u002F\u002F Set default layout as a global component\u003C\u002Fspan\u003E\n  Vue\u003Cspan class=\"token punctuation\"\u003E.\u003C\u002Fspan\u003E\u003Cspan class=\"token function\"\u003Ecomponent\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E(\u003C\u002Fspan\u003E\u003Cspan class=\"token string\"\u003E\"Layout\"\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E,\u003C\u002Fspan\u003E DefaultLayout\u003Cspan class=\"token punctuation\"\u003E)\u003C\u002Fspan\u003E\u003Cspan class=\"token punctuation\"\u003E;\u003C\u002Fspan\u003E\n\u003Cspan class=\"token punctuation\"\u003E}\u003C\u002Fspan\u003E\u003C\u002Fcode\u003E\u003Cspan aria-hidden=\"true\" class=\"line-numbers-rows\" style=\"white-space: normal; width: auto; left: 0;\"\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003Cspan\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\n\u003Ch2 id=\"ossa-narrat-sortita-fecerat-sit-conataque\"\u003E\u003Ca href=\"#ossa-narrat-sortita-fecerat-sit-conataque\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003EOssa narrat sortita fecerat sit conataque\u003C\u002Fh2\u003E\n\u003Cp\u003ELorem markdownum aptos pes, Inachidos caput corrumpere! Hanc haud quam \u003Ca href=\"http:\u002F\u002Fquisquis-in.io\u002Framossuperum\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003Eest\ncandore\u003C\u002Fa\u003E conpulit meriti. Vincere ferocia\narva.\u003C\u002Fp\u003E\n\u003Ch2 id=\"eleis-celeberrimus-loci-ait-falsa-infelix-tuoque\"\u003E\u003Ca href=\"#eleis-celeberrimus-loci-ait-falsa-infelix-tuoque\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003EEleis celeberrimus loci ait falsa infelix tuoque\u003C\u002Fh2\u003E\n\u003Cp\u003EMox haberet ambae torique dedisses quibus que membraque nervo remanet, digiti\niam neve clamorque fallaces. Relicto aures rarissima detur quoniamque habes haec\nBrotean, redit, est creatis aequore; vel? Impetus glaciali coruscant Bacchus\n\u003Cstrong\u003Emirata pararet potes\u003C\u002Fstrong\u003E, atque mea rumpere sustulerat umeris fuit.\u003C\u002Fp\u003E\n\u003Ch2 id=\"facundis-quid\"\u003E\u003Ca href=\"#facundis-quid\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003EFacundis quid\u003C\u002Fh2\u003E\n\u003Cp\u003EVenerit conveniunt per memori sed laniarat Dromas, solum tum. Undis lacteus\ninfitiatur adest \u003Ca href=\"http:\u002F\u002Fwww.tollit-clamavit.io\u002F\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003Eacies certius\u003C\u002Fa\u003E inscius, cum ad\nemittunt dextra.\u003C\u002Fp\u003E\n\u003Cp\u003EFronde ait ferox medium, virginis igni sanguine micant: \u003Cstrong\u003Einertia\u003C\u002Fstrong\u003E ore quoque?\nIaculi quicquid \u003Cstrong\u003Evirescere misit stirpe\u003C\u002Fstrong\u003E Theseus Venerem! Falce taceo oves,\nidem fugit, non abiit palam quantum, fontes vinci et abiit. Deiectoque exstabant\n\u003Cstrong\u003EPhrygiae\u003C\u002Fstrong\u003E cepit munus tanto.\u003C\u002Fp\u003E\n\u003Ch2 id=\"et-capienda-peneia\"\u003E\u003Ca href=\"#et-capienda-peneia\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003EEt capienda Peneia\u003C\u002Fh2\u003E\n\u003Cp\u003E\u003Cem\u003EHaec moenia pater\u003C\u002Fem\u003E signataque urget, ait quies laqueo sumitque. Misit sit\nmoribunda terrae sequar longis hoc, cingebant copia cultros! Alis templi taeda\nsolet suum mihi penates quae. Cecidere \u003Cem\u003Edeo agger infantem\u003C\u002Fem\u003E indetonsusque ipsum;\nova formasque cornu et pectora \u003Ca href=\"http:\u002F\u002Fwww.tibibene.io\u002Fiter.html\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003Evoce oculos\u003C\u002Fa\u003E,\nprodis pariterque sacra finibus, Sabinae. Fugarant fuerat, famam ait toto imas\nsorte pectora, est et, procubuit sua Appenninigenae habes postquam.\u003C\u002Fp\u003E\n\u003Ch2 id=\"quoque-aut-gurgite-aliquis-igneus\"\u003E\u003Ca href=\"#quoque-aut-gurgite-aliquis-igneus\" aria-hidden=\"true\"\u003E\u003Cspan class=\"icon icon-link\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003EQuoque aut gurgite aliquis igneus\u003C\u002Fh2\u003E\n\u003Cp\u003ESpatiosa ferax iam sis ex quae peperit iacentes, grates rogat quae senserat nec\nnec verba harenas inplent. Per dum necis in in versus quin loquendi latens;\ninde. \u003Cstrong\u003ECoit insano\u003C\u002Fstrong\u003E nepos fuerit potest hactenus, ab locis Phoenicas, obsisto\nerat!\u003C\u002Fp\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003ENec uterum Aurorae petentes abstulit. Unumque huic rabida tellus volumina\nSemeleia, quoque reverti Iuppiter pristina fixa vitam multo Enaesimus quam\ndux. Sua \u003Cstrong\u003Edamus\u003C\u002Fstrong\u003E decipere, ut \u003Cstrong\u003Eobortas\u003C\u002Fstrong\u003E nomen sine vestrae vita.\u003C\u002Fp\u003E\n\u003C\u002Fblockquote\u003E\n\u003Cp\u003ETurbine ora sum securae, purpureae lacertis Pindumve superi: tellus liquerat\n\u003Cstrong\u003Ecarinis\u003C\u002Fstrong\u003E. Multisque stupet Oete Epaphi mediamque gerebat signum lupi sit,\nlacrimas. Tumidi fassusque hosti, deus \u003Ca href=\"http:\u002F\u002Fhisnurus.com\u002Fputares-pars\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003Evixque desint\ndedit\u003C\u002Fa\u003E dum et, quo non, dea \u003Ca href=\"http:\u002F\u002Fmactata.org\u002Finducere.php\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003Esuras\ntantum\u003C\u002Fa\u003E. Unus acta capulo. In Dryope sic\nvestigia est neu ignis in \u003Cstrong\u003Eilla mirantur agilis\u003C\u002Fstrong\u003E densior.\u003C\u002Fp\u003E\n","humanTime":"January 10th 2020","author":{"name":"Josh Arrants"}}},"context":{}};(function(){var s;(s=document.currentScript||document.scripts[document.scripts.length-1]).parentNode.removeChild(s);}());</script><script src="/assets/js/app.be286d7c.js" defer></script><script src="/assets/js/page--src-templates-blog-vue.043997d2.js" defer></script>
+  </body>
+</html>
