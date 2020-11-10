@@ -24,9 +24,9 @@
     <v-spacer />
 
     <v-btn icon v-for="({ icon, to }, i) in socials" :key="i">
-      <g-link :to="to">
+      <a :href="to" target="_blank" rel="noopener noreferrer nofollow">
         <v-icon>{{ icon }}</v-icon>
-      </g-link>
+      </a>
     </v-btn>
   </v-app-bar>
 </template>
@@ -37,9 +37,9 @@ export default {
     return {
       links: [
         { name: 'Home', to: '/' },
-        { name: 'About', to: '/about' },
-        { name: 'Blog', to: '/blog' },
-        { name: 'Contact', to: '/contact' }
+        { name: 'About', to: '/about/' },
+        { name: 'Blog', to: '/blog/' },
+        { name: 'Contact', to: '/contact/' }
       ],
       socials: [
         {

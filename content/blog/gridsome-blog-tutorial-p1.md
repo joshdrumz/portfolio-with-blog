@@ -163,7 +163,7 @@ Then, we'll need to register the Vuetify plugin, include the Vuetify CSS file, a
 head for Google's material design icons in your `main.js` file. We installed Vuetify v2 so we need to
 configure our file for version 2. Replace the code in `src/main.js` with this:
 
-```js
+```js {codeTitle: "src/main.js"}
 // v2.0
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
@@ -199,8 +199,7 @@ npm install webpack-node-externals --save-dev
 
 Now let's modify our `gridsome.config.js` file to include the package and allowlist Vuetify.
 
-```js
-// gridsome.config.js
+```js {9} {codeTitle: "gridsome.config.js"}
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = function (api) {
@@ -226,4 +225,4 @@ You should notice that now our webpage looks a little different now that Vuetify
 
 ## Conclusion
 
-In [part 2](/blog/how-to-build-a-personal-developer-blog-with-vue-js-gridsome-and-vuetify-part-2), we'll start building out a layout and pages for our developer blog!
+In [part 2](/blog/how-to-build-a-personal-developer-blog-with-vue-js-gridsome-and-vuetify-part-2/), we'll start building out a layout for our developer blog!

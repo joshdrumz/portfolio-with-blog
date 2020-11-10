@@ -7,11 +7,11 @@
         <v-spacer></v-spacer>
 
         <v-btn v-for="icon in icons" :key="icon.to" class="mx-4" dark icon>
-          <g-link :to="icon.to">
+          <a :href="icon.to" target="_blank" rel="noopener noreferrer nofollow">
             <v-icon size="24px">
               {{ icon.icon }}
             </v-icon>
-          </g-link>
+          </a>
         </v-btn>
       </v-card-title>
 

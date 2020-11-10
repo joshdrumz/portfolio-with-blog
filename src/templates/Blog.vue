@@ -125,7 +125,16 @@ export default {
 
     highlights.forEach(div => {
       const copyBtn = document.createElement('button');
-      copyBtn.innerHTML = `Copy ${div.attributes[1].nodeValue}`;
+
+      if (
+        div.attributes[1].value === 'sh' ||
+        div.attributes[1].value === 'bash'
+      ) {
+        copyBtn.style.marginTop = '0';
+        copyBtn.style.right = '0';
+      }
+
+      copyBtn.innerHTML = `Copy ${div.attributes[1].value}`;
       copyBtn.addEventListener('click', this.handleCopyClick);
       div.append(copyBtn);
     });
@@ -166,6 +175,7 @@ export default {
 </script>
 
 <style scoped>
+/* https://medium.com/@brockreece/scoped-styles-with-v-html-c0f6d2dc5d8e */
 .markdown {
   line-height: 35px;
 }
@@ -194,13 +204,12 @@ export default {
 }
 
 .markdown >>> h2 {
-  /* https://medium.com/@brockreece/scoped-styles-with-v-html-c0f6d2dc5d8e */
   margin: 1.5rem 0 1.5rem 0;
 }
 
 .markdown >>> .gridsome-highlight {
   font-size: 17px;
-  margin: 3rem 0 3rem 0;
+  margin: 0 0 3rem 0;
 }
 
 .markdown >>> p {
@@ -223,9 +232,23 @@ export default {
   padding: 5px 10px;
   font-size: 0.8em;
   position: absolute;
+  margin-top: 1rem;
   top: 0;
-  right: 0;
+  right: 1rem;
   border-radius: 0 0.15rem;
+}
+
+.markdown >>> .gridsome-code-title {
+  position: relative;
+  z-index: 1;
+  background-color: #66b13d;
+  color: black;
+  font-style: normal;
+  font-size: 22px;
+  text-align: left;
+  line-height: 1.5;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
 }
 
 /**
@@ -238,22 +261,6 @@ export default {
   margin: 4em 0;
   padding: 1em;
   overflow: auto;
-} */
-
-/* .markdown >>> .gridsome-code-title {
-  position: relative;
-  z-index: 100;
-  margin-bottom: -0.8em;
-  background-color: rgb(255, 238, 188);
-  color: red;
-  font-style: italic;
-  font-weight: 100;
-  text-align: center;
-  font-family: PT Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
-    monospace;
-  line-height: 1.5;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
 } */
 
 /**

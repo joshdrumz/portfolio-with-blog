@@ -6,9 +6,6 @@
 
 module.exports = {
   siteName: 'Josh Arrants',
-  permalinks: {
-    trailingSlash: false
-  },
   plugins: [
     {
       use: '@gridsome/source-filesystem',

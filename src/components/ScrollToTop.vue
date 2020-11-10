@@ -1,7 +1,7 @@
 <template>
   <transition name="bounce">
     <v-btn
-      class="md-5 mr-3 elevation-21"
+      class="md-5 mr-3"
       dark
       fab
       bottom
