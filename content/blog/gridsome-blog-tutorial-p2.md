@@ -4,7 +4,7 @@ category: Coding
 excerpt: In part 2 of the Gridsome blog series, we'll start building a layout for our Gridsome site.
 created: 2020-10-11
 keywords: 'HTML,CSS,JavaScript,JSON,Vue,Gridsome,Vuetify,GraphQL'
-image: ./images/how-to-vue-gridsome-vuetify.png
+image: ./images/gridsome-blog-tutorial-p2.png
 image_caption: Photo by Josh Arrants
 author: author1
 ---

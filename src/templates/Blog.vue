@@ -279,6 +279,14 @@ export default {
   min-width: 100%;
 }
 
+.markdown >>> .gridsome-highlight pre[class='language-html'] {
+  margin-top: 1rem;
+}
+
+.markdown >>> .gridsome-highlight pre[class='language-js'] {
+  margin-top: 1rem;
+}
+
 .markdown >>> .gridsome-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.8em;
 }

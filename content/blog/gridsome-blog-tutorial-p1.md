@@ -4,7 +4,7 @@ category: Coding
 excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
 created: 2020-10-10
 keywords: 'HTML,CSS,JavaScript,JSON,Vue,Gridsome,Vuetify,GraphQL'
-image: ./images/how-to-vue-gridsome-vuetify.png
+image: ./images/gridsome-blog-tutorial-p1.png
 image_caption: Photo by Josh Arrants
 author: author1
 ---

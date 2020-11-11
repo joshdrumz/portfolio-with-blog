@@ -4,35 +4,23 @@
       Category | {{ $page.category.title }}
     </h1>
 
-    <v-row
+    <v-responsive class="mx-auto mb-8" width="56">
+      <v-divider class="mb-1"></v-divider>
+
+      <v-divider></v-divider>
+    </v-responsive>
+
+    <div
       v-for="element in $page.category.belongsTo.edges"
       :key="element.node.id"
     >
-      <v-col cols="12">
-        <v-hover v-slot:default="{ hover }">
-          <v-card
-            class="my-1 v-card-zoom"
-            rounded="xl"
-            dark
-            :elevation="hover ? 16 : 4"
-            :ripple="{ class: 'green--text' }"
-            @click="$router.push(`${element.node.path}`)"
-          >
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title class="headline">
-                  {{ element.node.title }}
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                  {{ element.node.humanTime }}
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-
+      <v-row class="my-8">
+        <v-col md="4">
+          <g-link :to="element.node.path">
             <v-img
               :src="element.node.image"
               :alt="element.node.image_caption"
-              height="300"
+              class="v-img-zoom"
             >
               <template v-slot:placeholder>
                 <v-row class="fill-height ma-0" align="center" justify="center">
@@ -43,22 +31,49 @@
                 </v-row>
               </template>
             </v-img>
+          </g-link>
+        </v-col>
+        <v-col md="8" align-self="start">
+          <v-card elevation="0">
+            <v-hover v-slot:default="{ hover }">
+              <v-card-title>
+                <g-link
+                  :to="element.node.path"
+                  class="black--text"
+                  :class="hover ? 'text-decoration' : 'text-decoration-none'"
+                >
+                  {{ element.node.title }}
+                </g-link>
+              </v-card-title>
+            </v-hover>
+
+            <v-card-subtitle>
+              {{ formatDate(element.node.created) }}
+            </v-card-subtitle>
 
             <v-card-text>
               {{ element.node.excerpt }}
             </v-card-text>
           </v-card>
-        </v-hover>
-      </v-col>
-    </v-row>
+        </v-col>
+      </v-row>
+    </div>
+
+    <div class="text-center">
+      <Pager :info="$page.category.belongsTo.pageInfo" class="pagination" />
+    </div>
   </Layout>
 </template>
 
 <page-query>
-query ($id: ID!) {
+query ($id: ID!, $page: Int) {
   category (id: $id) {
     title
-    belongsTo {
+    belongsTo (sortBy: "created", perPage: 5, page: $page) @paginate {
+      pageInfo {
+        totalPages
+        currentPage
+      }
       edges {
         node {
           ... on Blog {
@@ -69,7 +84,6 @@ query ($id: ID!) {
             image
             image_caption
             created
-            humanTime : created(format: "MMMM Do YYYY")
           }
         }
       }
@@ -79,33 +93,76 @@ query ($id: ID!) {
 </page-query>
 
 <script>
+import { Pager } from 'gridsome';
+import * as timeago from 'timeago.js';
+
 export default {
   metaInfo() {
     return {
       title: this.$page.category.title
     };
+  },
+  components: {
+    Pager
+  },
+  methods: {
+    formatDate(date) {
+      return timeago.format(date);
+    }
   }
 };
 </script>
 
 <style scoped>
-.v-card-zoom {
+.v-img-zoom {
   transition: transform 0.4s, filter 0.4s ease-in-out;
-  filter: brightness(70%);
+  filter: brightness(80%);
 }
 
-.v-card-zoom:hover {
+.v-img-zoom:hover {
   filter: brightness(100%);
   transform: scale(1.1);
 }
 
+/* https://github.com/vuetifyjs/vuetify/issues/9130 */
+.v-card__text,
+.v-card__title {
+  word-break: normal; /* maybe !important  */
+}
+
 /* Phones */
 @media only screen and (max-width: 600px) {
-  .v-card-zoom {
+  .v-img-zoom {
     filter: brightness(100%);
   }
-  .v-card-zoom:hover {
+  .v-img-zoom:hover {
     transform: scale(1.05);
   }
+}
+
+/* Pagination styling */
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  font-size: 22px;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination a.active {
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
 }
 </style>
