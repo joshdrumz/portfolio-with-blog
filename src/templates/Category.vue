@@ -33,7 +33,7 @@
             </v-img>
           </g-link>
         </v-col>
-        <v-col md="8" align-self="start">
+        <v-col md="8">
           <v-card elevation="0">
             <v-hover v-slot:default="{ hover }">
               <v-card-title>
