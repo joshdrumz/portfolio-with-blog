@@ -180,21 +180,13 @@ export default {
   line-height: 35px;
 }
 
-.markdown >>> ul:last-child {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.markdown >>> ul {
-  margin-left: 1.5rem;
-  margin-bottom: 2rem;
+.markdown >>> ul:first-child {
+  margin: 2rem 0 2rem 2rem;
 }
 
 .markdown >>> blockquote {
   font-size: 18px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 30px;
+  margin: 10px 0 10px 30px;
   padding-left: 15px;
   border-left: 3px solid #ccc;
 }
@@ -214,6 +206,10 @@ export default {
 
 .markdown >>> p {
   margin: 2rem 0 2rem 0;
+}
+
+.markdown >>> ul > li > p {
+  margin: 0;
 }
 
 .markdown >>> .language-text {
