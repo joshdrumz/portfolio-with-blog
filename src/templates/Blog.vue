@@ -125,16 +125,17 @@ export default {
 
     highlights.forEach(div => {
       const copyBtn = document.createElement('button');
+      const language = div.attributes[1].value;
 
-      if (
-        div.attributes[1].value === 'sh' ||
-        div.attributes[1].value === 'bash'
-      ) {
+      if (language === 'sh' || language === 'bash') {
         copyBtn.style.marginTop = '0';
         copyBtn.style.right = '0';
       }
 
-      copyBtn.innerHTML = `Copy ${div.attributes[1].value}`;
+      language === 'html'
+        ? (copyBtn.innerHTML = `Copy Vue`)
+        : (copyBtn.innerHTML = `Copy ${language}`);
+
       copyBtn.addEventListener('click', this.handleCopyClick);
       div.append(copyBtn);
     });
