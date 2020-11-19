@@ -67,7 +67,7 @@ export default {
   display: inline-block;
   width: 120px;
   height: 120px;
-  background-image: url('../../content/blog/images/emoji.png');
+  background-image: url('../../content/blog/images/404.png');
   background-size: cover;
   -webkit-transform: scale(1.4);
   -ms-transform: scale(1.4);

@@ -4,7 +4,7 @@ category: Coding
 excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
 created: 2020-10-10
 keywords: 'HTML,CSS,JavaScript,JSON,Vue,Gridsome,Vuetify,GraphQL'
-image: ./images/gridsome-blog-tutorial-p1.png
+image: ./images/gridsome-tut/gridsome-blog-tutorial-p1.png
 image_caption: Photo by Josh Arrants
 author: author1
 ---
@@ -51,6 +51,8 @@ Also, for GraphQL syntax highlighting to work with Gridsome, add this snippet to
   "static-query": "graphql"
 },
 ```
+
+To enable these settings in VSCode, open your command pallette (Ctrl + Shift + P) and select `Vetur: Generate grammar from 'vetur.grammar.customBlocks'`. Then, open the command pallette once more and select `Developer: Reload Window`.
 
 ## What is Vue.js?
 

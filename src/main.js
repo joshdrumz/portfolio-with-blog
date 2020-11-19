@@ -8,8 +8,8 @@ import 'vuetify/dist/vuetify.min.css'
 
 import VueDisqus from 'vue-disqus'
 
-require("gridsome-plugin-remark-prismjs-all/themes/tomorrow.css")
-require("prismjs/plugins/line-numbers/prism-line-numbers.css")
+require('gridsome-plugin-remark-prismjs-all/themes/tomorrow.css')
+require('prismjs/plugins/line-numbers/prism-line-numbers.css')
 
 export default function (Vue, { appOptions, head }) {
   head.link.push({
