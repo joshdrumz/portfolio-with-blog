@@ -286,6 +286,7 @@ export default {
 
 .markdown >>> .gridsome-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.8em;
+  margin-top: 1rem;
 }
 
 .v-alert {

@@ -4,7 +4,7 @@ category: Coding
 excerpt: In part 4 of the Gridsome blog series, we'll continue building out some pages for our Gridsome site, including a contact page powered by Netlify Forms and a custom 404 page!
 created: 2020-10-13
 keywords: 'HTML,CSS,JavaScript,JSON,Vue,Gridsome,Vuetify,GraphQL,Netlify'
-image: ./images/gridsome-tut/gridsome-blog-tutorial-p4.png
+image: ../images/gridsome-tut/gridsome-blog-tutorial-p4.png
 image_caption: Photo by Josh Arrants
 author: author1
 ---

@@ -4,7 +4,7 @@ category: Coding
 excerpt: In this tutorial, we'll learn how to build a personal markdown based blog keeping the JAMstack convention in mind!
 created: 2020-10-10
 keywords: 'HTML,CSS,JavaScript,JSON,Vue,Gridsome,Vuetify,GraphQL'
-image: ./images/gridsome-tut/gridsome-blog-tutorial-p1.png
+image: ../images/gridsome-tut/gridsome-blog-tutorial-p1.png
 image_caption: Photo by Josh Arrants
 author: author1
 ---
@@ -199,9 +199,9 @@ First, install the `webpack-node-externals` package as a dev dependency:
 npm install webpack-node-externals --save-dev
 ```
 
-Now let's modify our `gridsome.config.js` file to include the package and allowlist Vuetify.
+Now let's modify our `gridsome.server.js` file to include the package and allowlist Vuetify.
 
-```js {9} {codeTitle: "gridsome.config.js"}
+```js {8}{codeTitle: "gridsome.server.js"}
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = function (api) {
