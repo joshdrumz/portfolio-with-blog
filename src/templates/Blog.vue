@@ -248,6 +248,12 @@ export default {
   border-top-right-radius: 0.3em;
 }
 
+.markdown >>> img[src*='#thumbnail'] {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
 /**
  * Add back the container background-color, border-radius, padding, margin
  * and overflow that we removed from <pre>.

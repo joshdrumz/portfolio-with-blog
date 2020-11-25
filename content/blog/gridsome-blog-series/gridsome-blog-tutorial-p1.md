@@ -79,11 +79,13 @@ due to its better performance, higher security, lower cost of scaling, and an ov
 
 To start installing Gridsome onto your local machine, open your terminal and make sure you have Node installed. I'd highly recommend opening your folder in VSCode and utilizing the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) to run commands with the text editor.
 
-```sh
+```bash
 node --version && npm -v
 ```
 
-You should see version numbers in the terminal, meaning it installed correctly.
+You should see version numbers in the terminal, meaning it installed correctly. You should have Node v8.3 or higher installed for Gridsome to work properly.
+
+![Node version numbers in terminal](https://res.cloudinary.com/josharrants/image/upload/v1606257150/josharrants.com/p1/version_numbers_terminal_n9mmjr.png#thumbnail)
 
 Now, you can install the [Gridsome CLI](https://gridsome.org/docs/#1-install-gridsome-cli-tool) globally:
 
@@ -97,13 +99,13 @@ After you're done installing that, create a new folder with the name of the proj
 Make sure your terminal is located at the new directory you just created.
 We will create a new Gridsome project inside this folder using this command:
 
-```sh
+```bash
 gridsome create .
 ```
 
 Once that's done installing, we can run the development server with:
 
-```sh
+```bash
 gridsome develop
  // or
  npm run develop
@@ -113,11 +115,13 @@ Now our development server is accessible at [localhost:8080](http://localhost:80
 We can also access the GraphQL playground provided by Gridsome for testing out queries (will be used later)
 at [localhost:8080/___explore](http://localhost:8080/___explore) (three underscores).
 
+![Gridsome Home Page](https://res.cloudinary.com/josharrants/image/upload/v1606258444/josharrants.com/p1/gridsome-develop_b9qjhn.png#thumbnail)
+
 ## Folder Structure
 
 Upon running `gridsome create .` you can see that many files were generated.  
 
-```html
+```txt
 .
 ├── static/
 └── src/
@@ -224,6 +228,10 @@ module.exports = function (api) {
 > **Note**: Before webpack-node-externals version 2.4, use whitelist instead of allowlist.
 
 You should notice that now our webpage looks a little different now that Vuetify is working.
+
+![Vuetify working on Gridsome project site](https://res.cloudinary.com/josharrants/image/upload/v1606259120/josharrants.com/p1/init-vuetify_gtvmwh.png#thumbnail)
+
+You can see that Vuetify's default styles have now been enabled and our webpage looks a bit weird at the moment. Of course we'll make it look great in future tutorials!
 
 ## Conclusion
 

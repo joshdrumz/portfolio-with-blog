@@ -127,5 +127,7 @@ In the `path`, we are defining what our routes should like in our site. For exam
 
 Alright! Let's start creating some blog posts! Please leave any questions you might have in the comments below.
 
+<!-- ![404](https://res.cloudinary.com/josharrants/image/upload/v1606253226/josharrants.com/anomaly_t2antv.png) -->
+
 ## Creating our first Blog Post
 
