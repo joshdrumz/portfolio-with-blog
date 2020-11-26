@@ -85,7 +85,7 @@ node --version && npm -v
 
 You should see version numbers in the terminal, meaning it installed correctly. You should have Node v8.3 or higher installed for Gridsome to work properly.
 
-![Node version numbers in terminal](https://res.cloudinary.com/josharrants/image/upload/v1606257150/josharrants.com/p1/version_numbers_terminal_n9mmjr.png#thumbnail)
+![Node version numbers in terminal](https://res.cloudinary.com/josharrants/image/upload/v1606257150/josharrants.com/gridsome-blog-series/p1/version_numbers_terminal_n9mmjr.png#thumbnail)
 
 Now, you can install the [Gridsome CLI](https://gridsome.org/docs/#1-install-gridsome-cli-tool) globally:
 
@@ -115,7 +115,7 @@ Now our development server is accessible at [localhost:8080](http://localhost:80
 We can also access the GraphQL playground provided by Gridsome for testing out queries (will be used later)
 at [localhost:8080/___explore](http://localhost:8080/___explore) (three underscores).
 
-![Gridsome Home Page](https://res.cloudinary.com/josharrants/image/upload/v1606258444/josharrants.com/p1/gridsome-develop_b9qjhn.png#thumbnail)
+![Gridsome Home Page](https://res.cloudinary.com/josharrants/image/upload/v1606258444/josharrants.com/gridsome-blog-series/p1/gridsome-develop_b9qjhn.png#thumbnail)
 
 ## Folder Structure
 
@@ -229,7 +229,7 @@ module.exports = function (api) {
 
 You should notice that now our webpage looks a little different now that Vuetify is working.
 
-![Vuetify working on Gridsome project site](https://res.cloudinary.com/josharrants/image/upload/v1606259120/josharrants.com/p1/init-vuetify_gtvmwh.png#thumbnail)
+![Vuetify working on Gridsome project site](https://res.cloudinary.com/josharrants/image/upload/v1606259120/josharrants.com/gridsome-blog-series/p1/init-vuetify_gtvmwh.png#thumbnail)
 
 You can see that Vuetify's default styles have now been enabled and our webpage looks a bit weird at the moment. Of course we'll make it look great in future tutorials!
 

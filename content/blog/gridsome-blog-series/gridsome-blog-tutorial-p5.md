@@ -15,6 +15,7 @@ Welcome to part 5 of the Gridsome personal developer blog tutorial series! In pa
 - [Editing the Config](#editing-the-config)
 - [Creating our first Blog Post](#creating-our-first-blog-post)
 - [Gridsome's GraphQL Explorer](#gridsomes-graphql-explorer)
+- [Conclusion](#conclusion)
 
 ## Installing Plugins
 
@@ -210,4 +211,80 @@ Every Gridsome project has a **GraphQL explorer (Playground)** that can be used 
 
 Now, we should be able to see our three nodes we have created previously. Remember, we first created an _Author_ node in the _Author_ collection, a _Blog_ node in the _Blog_ collection, and a _Category_ node that was created from an instance of the _Blog_ node.
 
-Let's navigate to [localhost:8080/___explore](http://localhost:8080/___explore) and write some GraphQL queries!
+Navigate to [localhost:8080/___explore](http://localhost:8080/___explore) and let's write some GraphQL queries!
+
+To query all _Blog_ nodes available, open a new tab and write this query:
+
+```graphql
+query {
+  allBlog {
+    edges {
+      node {
+        id
+        title
+        content
+        excerpt
+        created
+        keywords
+        image
+        image_caption
+        category {
+          id
+          title
+        }
+        author {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+```
+
+Now you can hit the play button in the middle and you should be seeing this output:
+
+![allBlog GraphQl query to see all blog posts](https://res.cloudinary.com/josharrants/image/upload/v1606365720/josharrants.com/p5/allBlog-query_bo4lxk.png#thumbnail)
+
+Currently, we should only be able to see one blog post as we have only created one single blog post.
+
+Notice how we are also able to view the _Author_ and _Category_ nodes that are attached to this blog post. We're able to do this because both the _Author_ and _Category_ collections are defined as relationships to the _Blog_ collection.
+
+Similarly, we can print all available _Author_ nodes with this query:
+
+```graphql
+query {
+  allAuthor {
+    edges {
+      node {
+        id
+        name
+        facebook
+        twitter
+        linkedin
+      }
+    }
+  }
+}
+```
+
+And all available _Category_ nodes:
+
+```graphql
+query {
+  allCategory {
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
+}
+```
+
+Great! Now we can query our GraphQL data layer to grab markdown content and place it into our blog.
+
+## Conclusion
+
+That should be enough for this part of the series. Thank you for reading this far and I hope you are enjoying the content so far! Please leave any questions or thoughts down in the comments section below. In [part 6](/blog/how-to-build-a-personal-developer-blog-with-vue-js-gridsome-and-vuetify-part-6/), we'll start to build out the blog page and template and style them with CSS accordingly.
