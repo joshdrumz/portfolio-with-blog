@@ -284,6 +284,10 @@ export default {
 
 In this component, we are accessing some properties of the browser window to check for when the user scrolls down, and attaching that functionality to a floating action button. However, since we are working in a Node.js environment, window is not defined. There is a workaround for this, detailed in this [article](https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97).
 
+If everything worked correctly, you should be seeing this:
+
+![Gridsome Layout](https://res.cloudinary.com/josharrants/image/upload/v1606534137/josharrants.com/gridsome-blog-series/p2/layout_fownyx.png#thumbnail)
+
 ## Conclusion
 
 I think that should be enough for this part of the tutorial. We have successfully built a layout that will wrap around each one of our pages. Thank you for reading this far if you have and I look forward to reading your comments and inquiries!
