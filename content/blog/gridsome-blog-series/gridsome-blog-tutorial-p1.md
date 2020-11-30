@@ -11,11 +11,13 @@ author: author1
 
 Hello world! Thank you for taking the time to visit my blog page. 
 This is the first programming related tutorial I have written.
-I'm excited to begin my journey teaching others, just as I learned from content creaters on YouTube and Udemy.
+I'm excited to begin my journey teaching others, just as I learned from content creators on YouTube and Udemy.
 The site you are viewing now was also created using Vue.js, Gridsome, and Vuetify.
 
 In this guide, I will show you how to create your very own blog using Gridsome!  
 In part 1 of this series, we'll go through the setup and installation process of Gridsome and Vuetify.
+
+<!-- <iframe width="100%" height="500" src="https://www.youtube.com/embed/bmiRahyei28" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
 - [Prerequisites](#prerequisites)
 - [What is Vue.js?](#what-is-vuejs)
@@ -153,7 +155,7 @@ Let's examine what each file is used for in our project.
     The name of the template file must match the name of a GraphQL collection.
 - `gridsome.config.js` - This file contains configuration and options for installed plugins.
 - `gridsome.server.js` - An optional file that is used to access various parts of the Gridsome server.
-  It must export a functoin while will have access to the API.
+  It must export a function while will have access to the API.
 - `package.json` - Standard Node.js JSON file that contains basic information about the project.
 
 ## Setting up Vuetify in Gridsome

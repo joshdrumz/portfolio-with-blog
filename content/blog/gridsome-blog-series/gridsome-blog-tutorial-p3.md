@@ -269,6 +269,10 @@ span.cursor.typing {
 
 I won't spend too much time explaining the technical aspects of this component. Honestly, I followed a YouTube tutorial on how to do this in Vue, which you can find [here](https://www.youtube.com/watch?v=ZIbASNgVMlQ). If you'd like to change the words that rotate on the screen, change the values inside of `typeArray` in the `data()` function. The order of the words do matter, meaning that the first word in `typeArray` will be the first word that is typed, and so on.
 
+After completing the home page and typewriter component, your home page should look similar to this:
+
+![Gridsome Home Page](https://res.cloudinary.com/josharrants/image/upload/v1606543329/josharrants.com/gridsome-blog-series/p3/home-page_ofpbma.png#thumbnail)
+
 ## About Page
 
 The next page we will build is the about page! This page will be useful for users to learn more about you and where to find you on various social media platforms.  
@@ -428,6 +432,10 @@ export default {
 ```
 
 Once again, we are utilizing the `<slot name="home" />` tag to place content outside of the container specified in the layout. This page is similar to the Home Page in a few ways. One thing I will note here is the styles found in the `<style scoped>` tag. When a user hovers over one of the social media avatars down towards the bottom of the page, we are triggering an animation using just plain CSS. Feel free to tweak the brightness and transform values as you like! You can find all images used on this page [here](https://github.com/joshdrumz/portfolio-with-blog/tree/master/src/assets/img) for a reference size.
+
+After completing the about page, your site should look similar to this:
+
+![Gridsome About Page](https://res.cloudinary.com/josharrants/image/upload/v1606543397/josharrants.com/gridsome-blog-series/p3/about-page_wk9w4l.png#thumbnail)
 
 ## Conclusion
 

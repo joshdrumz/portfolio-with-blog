@@ -1,11 +1,13 @@
 <template>
   <Layout>
-    <h1 class="display-3 font-weight-bold my-5 text-center">Blog</h1>
+    <h1 class="display-3 font-weight-bold my-5 text-center text-uppercase">
+      Blog
+    </h1>
 
-    <v-responsive class="mx-auto mb-8" width="56">
-      <v-divider class="mb-1"></v-divider>
+    <v-responsive class="mx-auto mb-8 green" width="56">
+      <v-divider class="mb-1 blue"></v-divider>
 
-      <v-divider></v-divider>
+      <v-divider class="blue"></v-divider>
     </v-responsive>
 
     <div v-for="edge in $page.blogs.edges" :key="edge.node.id">

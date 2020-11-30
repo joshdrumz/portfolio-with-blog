@@ -254,6 +254,10 @@ export default {
   width: 100%;
 }
 
+.markdown >>> iframe {
+  margin: 0 0 2rem 0;
+}
+
 /**
  * Add back the container background-color, border-radius, padding, margin
  * and overflow that we removed from <pre>.

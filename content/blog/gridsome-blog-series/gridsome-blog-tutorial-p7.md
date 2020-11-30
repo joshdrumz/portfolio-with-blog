@@ -9,7 +9,7 @@ image_caption: Photo by Josh Arrants
 author: author1
 ---
 
-Welcome to part 7 of the Gridsome personal developer blog tutorial series! In part 6, we'll start to build out the Category template which will allow our users to find blog post content that is specifically aimed at a single topic or field.
+Welcome to part 7 of the Gridsome personal developer blog tutorial series! In part 7, we'll start to build out the Category template which will allow our users to find blog post content that is specifically aimed at a single topic or field.
 
 - [Category Template](#category-template)
 - [Conclusion](#conclusion)
