@@ -185,6 +185,10 @@ export default {
   margin: 2rem 0 2rem 2rem;
 }
 
+.markdown >>> ol:first-child {
+  margin: 2rem 0 2rem 2rem;
+}
+
 .markdown >>> blockquote {
   font-size: 18px;
   margin: 10px 0 10px 30px;
@@ -210,6 +214,10 @@ export default {
 }
 
 .markdown >>> ul > li > p {
+  margin: 0;
+}
+
+.markdown >>> ol > li > p {
   margin: 0;
 }
 

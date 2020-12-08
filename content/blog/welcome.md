@@ -2,7 +2,7 @@
 title: Welcome to my Blog!
 category: Personal
 excerpt: Welcome to my first blog post, where I talk about my history as a software engineer and the resources I used to learn my skills!
-created: 2020-11-03
+created: 2020-10-01
 keywords: 'Welcome,Blog,Post,Personal,YouTube,Udemy,Leetcode'
 image: ./images/welcome/welcome.png
 image_caption: Photo by Josh Arrants
