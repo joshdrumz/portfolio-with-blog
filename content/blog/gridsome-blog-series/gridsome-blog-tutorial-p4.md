@@ -357,7 +357,7 @@ export default {
   display: inline-block;
   width: 120px;
   height: 120px;
-  background-image: url('../../content/blog/images/404.png');
+  background-image: url('../assets/img/404.png');
   background-size: cover;
   -webkit-transform: scale(1.4);
   -ms-transform: scale(1.4);
@@ -409,7 +409,7 @@ export default {
 </style>
 ```
 
-You can find the image I use for this page [here](https://github.com/joshdrumz/portfolio-with-blog/blob/master/content/blog/images/emoji.png). We are simply telling the user that they have landed on a page that does not exist, or has been temporarily removed. This is an important page to have on all web applications big or small. We've also provided a button for the user to click that will take them back to a page that does exist, which in this case is the homepage.
+You can find the image I use for this page [here](https://github.com/joshdrumz/portfolio-with-blog/blob/master/content/blog/images/404.png). We are simply telling the user that they have landed on a page that does not exist, or has been temporarily removed. This is an important page to have on all web applications big or small. We've also provided a button for the user to click that will take them back to a page that does exist, which in this case is the homepage.
 
 ## Conclusion
 
