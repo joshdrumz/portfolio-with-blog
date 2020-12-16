@@ -23,11 +23,11 @@
           <h4 class="font-weight-light text-xs-body-1">
             {{ $page.blog.author.name }}
           </h4>
-          <p class="px-2">|</p>
+          <p class="px-2">・</p>
           <h4 class="font-weight-light text-xs-body-1">
             {{ $page.blog.humanTime }}
           </h4>
-          <p class="px-2">|</p>
+          <p class="px-2">・</p>
           <h4 class="font-weight-light text-xs-body-1">
             Posted in
             <g-link
@@ -207,6 +207,7 @@ export default {
 .markdown >>> .gridsome-highlight {
   font-size: 17px;
   margin: 0 0 3rem 0;
+  border-radius: 0.5em;
 }
 
 .markdown >>> p {
@@ -219,6 +220,33 @@ export default {
 
 .markdown >>> ol > li > p {
   margin: 0;
+}
+
+.markdown >>> table {
+  border-collapse: collapse;
+  margin: auto;
+  width: 90%;
+}
+
+.markdown >>> td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.markdown >>> tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.markdown >>> tr:hover {
+  background-color: #ddd;
+}
+
+.markdown >>> th {
+  padding: 12px 0 12px 10px;
+  text-align: left;
+  background-color: #66b13d;
+  color: white;
 }
 
 .markdown >>> .language-text {
@@ -252,13 +280,14 @@ export default {
   font-size: 22px;
   text-align: left;
   line-height: 1.5;
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.3em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
 }
 
 .markdown >>> img[src*='#thumbnail'] {
   display: block;
   margin: auto;
+  border-radius: 0.5em;
   width: 100%;
 }
 
@@ -295,10 +324,6 @@ export default {
 }
 
 .markdown >>> .gridsome-highlight pre[class='language-html'] {
-  margin-top: 1rem;
-}
-
-.markdown >>> .gridsome-highlight pre[class='language-js'] {
   margin-top: 1rem;
 }
 
