@@ -281,4 +281,4 @@ console.log('%c Big message', 'font-size: 36px; font-weight: bold;');
 
 ![using %c format specifier](https://res.cloudinary.com/josharrants/image/upload/v1608156752/josharrants.com/console-log/console-log-1_w06han.png#thumbnail)
 
-That's it! Thank you for reading this post and I hope you learned something new! I encourage you to play around with these console object methods yourself. You find all documentation for the console object [here](https://developer.mozilla.org/en-US/docs/Web/API/Console). Please leave a comment down below if you any questions, or feel free to fill out my [contact form](/contact/) for inquiries or thoughts!
+That's it! Thank you for reading this post and I hope you learned something new! I encourage you to play around with these console object methods yourself. You can find all documentation for the console object [here](https://developer.mozilla.org/en-US/docs/Web/API/Console). Please leave a comment down below if you have any questions, or feel free to fill out my [contact form](/contact/) for inquiries or thoughts!

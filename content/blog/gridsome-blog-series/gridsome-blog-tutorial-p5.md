@@ -43,6 +43,22 @@ We'll also being using an additional plugin that adds syntax highlighting to cod
 npm install gridsome-plugin-remark-prismjs-all
 ```
 
+We'll also need to edit our `gridsome.server.js` file a bit so we are able to use the themes available for `gridsome-plugin-remark-prismjs-all` in production. Open `gridsome.server.js` and append some more regex to `allowlist` inside of the `api.chainWebpack()` function.
+
+```js {6}{codeTitle: "gridsome.server.js"}{numberLines: true}
+module.exports = function (api) {
+  api.chainWebpack((config, { isServer }) => {
+    if (isServer) {
+      config.externals([
+        nodeExternals({
+          allowlist: [/^vuetify/, /^gridsome-plugin-remark-prismjs-all/, /^prismjs/]
+        })
+      ])
+    }
+  })
+}
+```
+
 ## Editing the Config
 
 Now that we have our necessary plugins installed, we'll also need to edit our `gridsome.config.js` file in order to "register" the plugins in our Gridsome project. Edit the `gridsome.config.js` file with this code.
