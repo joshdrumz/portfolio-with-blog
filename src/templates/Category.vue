@@ -4,10 +4,10 @@
       Category | {{ $page.category.title }}
     </h1>
 
-    <v-responsive class="mx-auto mb-8" width="56">
-      <v-divider class="mb-1"></v-divider>
+    <v-responsive class="mx-auto mb-8 green" width="56">
+      <v-divider class="mb-1 blue"></v-divider>
 
-      <v-divider></v-divider>
+      <v-divider class="blue"></v-divider>
     </v-responsive>
 
     <div
@@ -35,17 +35,14 @@
         </v-col>
         <v-col md="8">
           <v-card elevation="0">
-            <v-hover v-slot:default="{ hover }">
-              <v-card-title>
-                <g-link
-                  :to="element.node.path"
-                  class="black--text"
-                  :class="hover ? 'text-decoration' : 'text-decoration-none'"
-                >
-                  {{ element.node.title }}
-                </g-link>
-              </v-card-title>
-            </v-hover>
+            <v-card-title>
+              <g-link
+                :to="element.node.path"
+                :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+              >
+                {{ element.node.title }}
+              </g-link>
+            </v-card-title>
 
             <v-card-subtitle>
               {{ formatDate(element.node.created) }}
@@ -114,6 +111,10 @@ export default {
 </script>
 
 <style scoped>
+.v-card a {
+  text-decoration: none;
+}
+
 .v-img-zoom {
   transition: transform 0.4s, filter 0.4s ease-in-out;
   filter: brightness(80%);

@@ -13,15 +13,26 @@
         <v-tabs-slider color="#65e620"></v-tabs-slider>
         <v-tab
           v-for="({ name, to }, i) in links"
+          exact
           :key="i"
           :to="to"
           :ripple="{ class: 'green--text' }"
+          class="white--text"
           >{{ name }}</v-tab
         >
       </v-tabs>
     </template>
 
     <v-spacer />
+
+    <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+      <div v-if="!$vuetify.theme.dark">
+        <v-icon>mdi-moon-waning-crescent</v-icon>
+      </div>
+      <div v-else>
+        <v-icon>mdi-white-balance-sunny</v-icon>
+      </div>
+    </v-btn>
 
     <v-btn icon v-for="({ icon, to }, i) in socials" :key="i">
       <a :href="to" target="_blank" rel="noopener noreferrer nofollow">

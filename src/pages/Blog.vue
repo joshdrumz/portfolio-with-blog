@@ -32,17 +32,14 @@
         </v-col>
         <v-col md="8">
           <v-card elevation="0">
-            <v-hover v-slot:default="{ hover }">
-              <v-card-title>
-                <g-link
-                  :to="edge.node.path"
-                  class="black--text"
-                  :class="hover ? 'text-decoration' : 'text-decoration-none'"
-                >
-                  {{ edge.node.title }}
-                </g-link>
-              </v-card-title>
-            </v-hover>
+            <v-card-title>
+              <g-link
+                :to="edge.node.path"
+                :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+              >
+                {{ edge.node.title }}
+              </g-link>
+            </v-card-title>
 
             <v-card-subtitle>
               {{ formatDate(edge.node.created) }} |
@@ -118,6 +115,10 @@ export default {
 </script>
 
 <style scoped>
+.v-card a {
+  text-decoration: none;
+}
+
 .v-img-zoom {
   transition: transform 0.4s, filter 0.4s ease-in-out;
   filter: brightness(80%);

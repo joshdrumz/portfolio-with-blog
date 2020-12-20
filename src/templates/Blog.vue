@@ -196,9 +196,9 @@ export default {
   border-left: 3px solid #ccc;
 }
 
-.markdown >>> a {
+/* .markdown >>> a {
   color: black;
-}
+} */
 
 .markdown >>> h2 {
   margin: 1.5rem 0 1.5rem 0;

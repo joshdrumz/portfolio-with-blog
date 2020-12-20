@@ -4,9 +4,21 @@
       <div id="notfound">
         <div class="notfound">
           <div class="notfound-404">
-            <h1>4<span></span>4</h1>
+            <h1
+              :style="
+                $vuetify.theme.dark ? { color: 'white' } : { color: '#232323' }
+              "
+            >
+              4<span></span>4
+            </h1>
           </div>
-          <h2>Oops! This page could not be found.</h2>
+          <h2
+            :style="
+              $vuetify.theme.dark ? { color: 'white' } : { color: '#232323' }
+            "
+          >
+            Oops! This page could not be found.
+          </h2>
           <p>
             The page you are looking for does not exist, has been removed, or
             it's temporarily unavailable.

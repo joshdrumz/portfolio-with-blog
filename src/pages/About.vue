@@ -1,7 +1,10 @@
 <template>
   <Layout>
     <template slot="home">
-      <section id="about-me" class="grey lighten-3">
+      <section
+        id="about-me"
+        :class="!$vuetify.theme.dark ? 'grey lighten-3' : 'grey darken-4'"
+      >
         <div class="py-12"></div>
 
         <div class="text-center">
@@ -79,7 +82,13 @@
                 cols="12"
                 md="4"
               >
-                <v-card class="py-12 px-4" color="grey lighten-4" flat>
+                <v-card
+                  class="py-12 px-4"
+                  :color="
+                    !$vuetify.theme.dark ? 'grey lighten-2' : 'grey darken-4'
+                  "
+                  flat
+                >
                   <v-theme-provider dark>
                     <div>
                       <g-link :to="to">
