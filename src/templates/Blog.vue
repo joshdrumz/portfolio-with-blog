@@ -1,6 +1,8 @@
 <template>
   <Layout>
     <template slot="home">
+      <div class="progress" id="progress"></div>
+
       <v-alert
         border="left"
         colored-border
@@ -138,6 +140,10 @@ export default {
 
       copyBtn.addEventListener('click', this.handleCopyClick);
       div.append(copyBtn);
+
+      if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', this.setProgressBar);
+      }
     });
   },
   methods: {
@@ -170,6 +176,26 @@ export default {
         document.getSelection().removeAllRanges();
         document.getSelection().addRange(selected);
       }
+    },
+    setProgressBar() {
+      let prog = document.getElementById('progress');
+
+      let body = document.body,
+        html = document.documentElement;
+
+      let height = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
+
+      let scrollFromTop =
+        (html.scrollTop || body.scrollTop) + html.clientHeight;
+      let width = (scrollFromTop / height) * 100 + '%';
+
+      prog.style.width = width;
     }
   }
 };
@@ -330,6 +356,17 @@ th {
 .markdown >>> .gridsome-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.8em;
   margin-top: 1rem;
+}
+
+.progress {
+  background: #65e620;
+  position: fixed;
+  top: 50px;
+  bottom: auto;
+  left: 0;
+  width: 0%;
+  height: 6px;
+  z-index: 1000;
 }
 
 .v-alert {
