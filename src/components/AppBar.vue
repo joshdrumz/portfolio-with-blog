@@ -13,7 +13,6 @@
         <v-tabs-slider color="#65e620"></v-tabs-slider>
         <v-tab
           v-for="({ name, to }, i) in links"
-          exact
           :key="i"
           :to="to"
           :ripple="{ class: 'green--text' }"

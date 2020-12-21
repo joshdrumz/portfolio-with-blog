@@ -13,6 +13,7 @@ Welcome to part 8 of the Gridsome personal developer blog tutorial series! In pa
 
 - [Pagination](#pagination)
 - [Copy Code Button](#copy-code-button)
+- [Dark Mode](#dark-mode)
 - [Conclusion](#conclusion)
 
 ## Pagination
@@ -345,6 +346,226 @@ Lastly, I'll add a few slight CSS tweaks to make sure it looks good on mobile, e
 ```
 
 That should do it! Refresh the page or restart the development server to see these changes!
+
+## Dark Mode
+
+The last feature we'll cover is Dark Mode. Everyone loves a webpage with dark mode, right? Luckily, Vuetify makes this feature extremely easy to implement. The only slip-up we might encounter is with some of the custom CSS we placed in our project (specifically in the `Blog.vue` template, for example). We can target the Vuetify instance itself to grab the theme property and toggle it from light to dark with some easy JavaScript.
+
+Let's first dive into our navigation bar and place a button on the top of the page that will serve as a toggle between the light and dark themes.
+
+Open up `AppBar.vue` and add this button under the last `<v-spacer />` element inside of `<template>`.
+
+```html {3-10}{numberLines: 25}{codeTitle: "src/components/AppBar.vue"}
+<v-spacer />
+
+<v-btn icon @click="toggleDarkMode">
+  <div v-if="!$vuetify.theme.dark">
+    <v-icon>mdi-moon-waning-crescent</v-icon>
+  </div>
+  <div v-else>
+    <v-icon>mdi-white-balance-sunny</v-icon>
+  </div>
+</v-btn>
+
+<v-btn icon v-for="({ icon, to }, i) in socials" :key="i">
+  <a :href="to" target="_blank" rel="noopener noreferrer nofollow">
+    <v-icon>{{ icon }}</v-icon>
+```
+
+Here, we're utilizing some Vue directives to conditionally render an icon inside the button based on Vuetify's current theme state. Also, notice how we're able to access the state directly inside of the template with `$vuetify`. This access is automatically configured when we installed Vuetify into our project at the beginning of the series.
+
+Inside of `<v-btn>`, we're placing an on click method called `toggleDarkMode`. This method will toggle between the light and dark themes and store the current theme state (a boolean value) into [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) so when the user comes back to our webpage, it will save their theme preference so they don't have to toggle themes each time they reload or revisit the site.
+
+Let's write out the `toggleDarkMode` method now.  
+Inside of the same file, place this chunk of code under the existing `data()` block.
+
+```js
+methods: {
+  toggleDarkMode() {
+    this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString());
+  }
+},
+```
+
+We also need to grab the user's set theme preference from `localStorage` each time the website is loaded. Let's do this functionality inside of a `mounted()` lifecycle hook.
+
+Place this chunk of code under the `methods` block.
+
+```js
+mounted() {
+  const theme = localStorage.getItem('dark_theme');
+  if (theme) {
+    theme == 'true'
+      ? (this.$vuetify.theme.dark = true)
+      : (this.$vuetify.theme.dark = false);
+  }
+}
+```
+
+For now, dark mode should be working! If you'd like to have your site default to dark mode, add this property in the `opts` object inside of `main.js`.
+
+```js {codeTitle: "src/main.js"}
+const opts = {
+  theme: {
+    dark: true
+  }
+}; // opts includes, vuetify themes, icons, etc.
+```
+
+You may have noticed that some of our pages look a bit weird when toggled to a darker shade. We'll need to fix these pages so that dark mode can look great on all pages of our site.
+
+First, add a class of `white--text` to the `<v-tab>` element in our `AppBar.vue` component so that our route titles don't change to a blue color when toggled to dark mode.
+
+```html {9}{numberLines: 11}{codeTitle: "src/components/AppBar.vue"}
+<template v-slot:extension>
+  <v-tabs show-arrows centered fixed-tabs>
+    <v-tabs-slider color="#65e620"></v-tabs-slider>
+    <v-tab
+      v-for="({ name, to }, i) in links"
+      :key="i"
+      :to="to"
+      :ripple="{ class: 'green--text' }"
+      class="white--text"
+      >{{ name }}</v-tab
+    >
+  </v-tabs>
+</template>
+```
+
+Next, let's edit the `About.vue` page to look great on dark mode.  
+Start with the `<section>` tag towards the top of the file.
+
+```html {6}{numberLines: true}{codeTitle: "src/pages/About.vue"}
+<template>
+  <Layout>
+    <template slot="home">
+      <section
+        id="about-me"
+        :class="!$vuetify.theme.dark ? 'grey lighten-3' : 'grey darken-4'"
+      >
+        <div class="py-12"></div>
+```
+
+In this change, we're v-binding the `class` attribute to change based on the current theme state. In this case, the background of the about section should be a lighter gray when we're on light mode and a darker gray when dark mode is toggled.
+
+Scroll further down the same file and change the `color` attribute of `<v-card>` with the same functionality as before.
+
+```html {10}{numberLines: 78}
+<v-row>
+  <v-col
+    v-for="({ icon, text, title, to }, i) in socials"
+    :key="i"
+    cols="12"
+    md="4"
+  >
+    <v-card
+      class="py-12 px-4"
+      :color="!$vuetify.theme.dark ? 'grey lighten-2' : 'grey darken-4'"
+      flat
+    >
+```
+
+Next, let's now edit the `Blog.vue` page.  
+Edit the `<v-card-title>` tag towards the middle of the `<template>` section. Make sure you remove the `<v-hover>` tag as well.
+
+```html {4}{numberLines: 35}{codeTitle: "src/pages/Blog.vue"}
+<v-card-title>
+  <g-link
+    :to="edge.node.path"
+    :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+  >
+    {{ edge.node.title }}
+  </g-link>
+</v-card-title>
+```
+
+In the same file, also add this quick snippet of CSS so the underline under the parsed `<g-link>` tag is removed.
+
+```css
+.v-card a {
+  text-decoration: none;
+}
+```
+
+Next, inside of the `Blog.vue` template, remove or comment this piece of CSS.
+
+```css {codeTitle: "src/templates/Blog.vue"}
+/* .markdown >>> a {
+  color: black;
+} */
+```
+
+Next, let's edit the `Category.vue` template.  
+Edit the `<v-card-title>` tag towards the middle of the `<template>` section. Make sure you remove the `<v-hover>` tag just like before.
+
+```html {4}{numberLines: 38}{codeTitle: "src/templates/Category.vue"}
+<v-card-title>
+  <g-link
+    :to="element.node.path"
+    :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
+  >
+    {{ element.node.title }}
+  </g-link>
+</v-card-title>
+```
+
+In the same file, also add the same piece of CSS as we added in the `Blog.vue` page.
+
+```css
+.v-card a {
+  text-decoration: none;
+}
+```
+
+Lastly, we'll need to edit the pagination stylings so that it is correctly displayed while the current theme state is dark. In our project, pagination is present on both the `Blog.vue` page and the `Category.vue` template. The easiest way to implement this is by v-binding the `class` attribute on the `<Pager />` component to switch between a `pagination` class when light mode is present and a `pagination-dark` class when dark mode is toggled.
+
+Let's first edit the `Blog.vue` page.  
+Start by copying all of the current pagination CSS and pasting it below while also inverting the necessary colors to reflect a dark mode presence.
+
+```css {7,20,24}{codeTitle: "src/pages/Blog.vue"}
+/* Pagination styling (dark) */
+.pagination-dark {
+  display: inline-block;
+}
+
+.pagination-dark a {
+  color: white;
+  float: left;
+  font-size: 22px;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination-dark a.active {
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: black;
+}
+
+.pagination-dark a:hover:not(.active) {
+  background-color: rgb(114, 114, 114);
+}
+```
+
+The only differences here are the three lines highlighted in the above code block. We're keeping all the same CSS properties while also inverting the colors.
+
+Now we'll need to implement this change in the `<Pager />` component itself.
+
+```html {3}{numberLines: 60}
+<Pager
+  :info="$page.blogs.pageInfo"
+  :class="!$vuetify.theme.dark ? 'pagination' : 'pagination-dark'"
+/>
+```
+
+Simply repeat these two edits for the `Category.vue` template file and you should be good to go!
+
+![alt](https://res.cloudinary.com/josharrants/image/upload/v1608520530/josharrants.com/gridsome-blog-series/p8/dark-mode_jpzjpn.webp#thumbnail)
+
 
 ## Conclusion
 
