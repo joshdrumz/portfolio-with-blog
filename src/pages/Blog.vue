@@ -60,7 +60,10 @@
     </div>
 
     <div class="text-center">
-      <Pager :info="$page.blogs.pageInfo" class="pagination" />
+      <Pager
+        :info="$page.blogs.pageInfo"
+        :class="$vuetify.theme.dark ? 'pagination-dark' : 'pagination'"
+      />
     </div>
   </Layout>
 </template>
@@ -145,7 +148,7 @@ export default {
   }
 }
 
-/* Pagination styling */
+/* Pagination styling (light) */
 .pagination {
   display: inline-block;
 }
@@ -169,5 +172,31 @@ export default {
 
 .pagination a:hover:not(.active) {
   background-color: #ddd;
+}
+
+/* Pagination styling (dark) */
+.pagination-dark {
+  display: inline-block;
+}
+
+.pagination-dark a {
+  color: white;
+  float: left;
+  font-size: 22px;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination-dark a.active {
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: black;
+}
+
+.pagination-dark a:hover:not(.active) {
+  background-color: rgb(114, 114, 114);
 }
 </style>

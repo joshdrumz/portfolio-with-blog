@@ -25,7 +25,7 @@
 
     <v-spacer />
 
-    <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+    <v-btn icon @click="toggleDarkMode">
       <div v-if="!$vuetify.theme.dark">
         <v-icon>mdi-moon-waning-crescent</v-icon>
       </div>
@@ -65,6 +65,20 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    toggleDarkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString());
+    }
+  },
+  mounted() {
+    const theme = localStorage.getItem('dark_theme');
+    if (theme) {
+      theme == 'true'
+        ? (this.$vuetify.theme.dark = true)
+        : (this.$vuetify.theme.dark = false);
+    }
   }
 };
 </script>
