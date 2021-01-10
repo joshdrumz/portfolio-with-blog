@@ -70,6 +70,17 @@
       v-html="$page.blog.content"
     ></div>
 
+    <!-- <iframe
+      width="100%"
+      height="500"
+      src="https://www.youtube.com/embed/bmiRahyei28"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
+    <div class="py-4"></div> -->
+
     <Disqus shortname="josharrants" :identifier="$page.blog.title" />
 
     <!-- <a

@@ -17,8 +17,6 @@ The site you are viewing now was also created using Vue.js, Gridsome, and Vuetif
 In this guide, I will show you how to create your very own blog using Gridsome!  
 In part 1 of this series, we'll go through the setup and installation process of Gridsome and Vuetify.
 
-<!-- <iframe width="100%" height="500" src="https://www.youtube.com/embed/bmiRahyei28" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-
 - [Prerequisites](#prerequisites)
 - [What is Vue.js?](#what-is-vuejs)
 - [What is Gridsome?](#what-is-gridsome)

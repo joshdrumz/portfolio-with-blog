@@ -10,6 +10,11 @@
       <v-divider class="blue"></v-divider>
     </v-responsive>
 
+    <!-- <div v-if="$url('/blog')">
+      <Newsletter />
+    </div>
+    <div v-else></div> -->
+
     <div v-for="edge in $page.blogs.edges" :key="edge.node.id">
       <v-row class="my-8">
         <v-col md="4">
@@ -101,13 +106,15 @@ query ($page: Int) {
 <script>
 import { Pager } from 'gridsome';
 import * as timeago from 'timeago.js';
+import Newsletter from '~/components/Newsletter';
 
 export default {
   metaInfo: {
     title: 'Blog'
   },
   components: {
-    Pager
+    Pager,
+    Newsletter
   },
   methods: {
     formatDate(date) {

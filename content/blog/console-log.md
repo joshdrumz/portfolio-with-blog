@@ -11,6 +11,16 @@ author: author1
 
 When working with JavaScript projects, you were most likely introduced to `console.log()`, which is a way to log the output of a variable or post a useful message to the [Browser Console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console). However, there are tons of other methods of the console object that you're able to use to debug your JS code. There's a reference of all available console object methods on the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Console).
 
+- [console.assert()](#consoleassert)
+- [console.count()](#consolecount)
+- [console.error()](#consoleerror)
+- [console.group() & console.groupEnd()](#consolegroup--consolegroupend)
+- [console.table()](#consoletable)
+- [console.time() & console.timeEnd()](#consoletime--consoletimeend)
+- [console.trace()](#consoletrace)
+- [console.warn()](#consolewarn)
+- [Styling your console.log() outputs](#styling-your-consolelog-outputs)
+
 ## console.assert()
 
 This method logs a message and stack trace to the console **only** if the first argument is false.  

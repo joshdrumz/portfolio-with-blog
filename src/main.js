@@ -28,6 +28,10 @@ export default function (Vue, { appOptions, head }) {
   //   async: true,
   // })
 
+  head.script.push({
+    src: 'https://f.convertkit.com/ckjs/ck.5.js',
+  });
+
   const opts = {
     theme: {
       dark: true
